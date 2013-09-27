@@ -1,9 +1,15 @@
 <Configuration>
   <RecentFiles>
     <RecentFiles>
-      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:Game1.cs" caret="0" fromTop="0" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:PlayerController.cs" caret="1237" fromTop="18" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:Game1.cs" caret="650" fromTop="0" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:ToDo.txt" caret="471" fromTop="14" />
     </RecentFiles>
-    <RecentEdits />
+    <RecentEdits>
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:PlayerController.cs" caret="1237" fromTop="18" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:ToDo.txt" caret="679" fromTop="18" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:ToDo.txt" caret="306" fromTop="4" />
+    </RecentEdits>
   </RecentFiles>
   <NAntValidationSettings>
     <NAntPath value="" />
@@ -23,4 +29,12 @@
       <setting name="SolutionAnalysisEnabled">False</setting>
     </boolean>
   </SettingsComponent>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="CSharpCodeCompletionContext">
+      <Item value="if" priority="31" />
+      <Item value="other" priority="95" />
+      <Item value="as" priority="31" />
+      <Item value="PhysModel`0" priority="32" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
 </Configuration>

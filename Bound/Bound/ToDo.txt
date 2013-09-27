@@ -1,6 +1,19 @@
-﻿Work on Player Controller:
-	Tighten up jump
+﻿Platforms:
+	Make it regeneratable in game, REMOVE PHYS from SPACE with DECONSTRUCTOR 
+	Start varying shape? Maybe make a more interesting model (octagonal, hexagonal, whatever), ramps, etc
+
+General:
+	Implement debug printing stuff, its good stuff
 
 Rendering:
-	Figure out how texturing is working a little better and simplify it
-	
+	Change lighting to directional
+	Temporary skybox for visualizing movement better
+
+
+
+
+
+Future:
+	Rainbow platforms?
+	Geometric columns in a trippy 3d space (like stars, and shit)? Hexagons or octagons
+	Getting rainbow colors in certain pattern or whatever maybe does something, maybe not

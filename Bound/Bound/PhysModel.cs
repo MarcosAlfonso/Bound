@@ -23,12 +23,23 @@ namespace ToBeDetermined
         public Boolean DrawModel = true;
         public Vector3 colorTint = new Vector3(1);
 
-        public PhysModel(Vector3 pos, Vector3 dims, int mass)
+        public enum PhysType
+        {
+            Ground = 0,
+            Platform = 1,
+            Player = 2,
+        }
+
+        public PhysType Type;
+
+        public PhysModel(Vector3 pos, Vector3 dims, int mass, PhysType pType)
         {
             if (mass == 0)
                 phys = new Box(pos, dims.X,dims.Y,dims.Z);
             else
                 phys = new Box(pos, dims.X, dims.Y, dims.Z, mass);
+
+            Type = pType;
 
             scaleMatrix = Matrix.CreateScale(dims*.033333333f);
 
@@ -36,13 +47,14 @@ namespace ToBeDetermined
             model = Render.gridCube;
         }
 
-        public PhysModel(Vector3 pos, float radius, int mass)
+        public PhysModel(Vector3 pos, float radius, int mass, PhysType pType)
         {
             if (mass == 0)
                 phys = new Sphere(pos, radius);
             else
                 phys = new Sphere(pos, radius, mass);
 
+            Type = pType;
 
             scaleMatrix = Matrix.CreateScale(radius * .033333333f);
 

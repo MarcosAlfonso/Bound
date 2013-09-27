@@ -78,7 +78,7 @@ namespace ToBeDetermined
             //Physics stuff
             space = new Space();
 
-            var ground = new PhysModel(Vector3.Zero, new Vector3(5000, 1, 5000), 0);
+            var ground = new PhysModel(Vector3.Zero, new Vector3(5000, 5, 5000), 0, PhysModel.PhysType.Ground);
             ground.setColorTint(new Vector3(.24f,.5f, .25f));
 
             PhysList.Add(ground);
@@ -86,17 +86,30 @@ namespace ToBeDetermined
             space.ForceUpdater.Gravity = new Vector3(0, -120f, 0);
 
             player = new PlayerController(new Vector3(0, 20, 0));
-            
-            for (int i = 0; i < 3; i++ )
-                for (int j = 0; j < 40; j++)
+
+            //How many rows of plats
+            for (int j = 0; j < 60; j++)
+            {
+                //Picks which platforms will spawn, 50/50
+                bool[] platDecide = {r.Next(0, 2) == 1, r.Next(0, 2) == 1, r.Next(0, 2) == 1, r.Next(0, 2) == 1};
+
+                //If none are true, start over
+                if (!platDecide[0] && !platDecide[1] && !platDecide[2] && !platDecide[3])
                 {
-                    if (r.Next(0, 3) < 2)
+                    platDecide[r.Next(0, 4)] = true;
+                }
+
+                //if at least one is true, do eet
+                for (int i = 0; i < 4; i++)
+                {
+                    if (platDecide[i])
                     {
-                        PhysModel phys = new PhysModel(new Vector3(-250 + 120 * i, r.Next(25,45), -250 + 250 * j), new Vector3(45, 3, 65), 0);
-                        phys.setColorTint(new Vector3(0.6f,0.1f,0.1f));
+                        PhysModel phys = new PhysModel(new Vector3(-250 + 120*i, r.Next(20, 50), -250 + 250*j), new Vector3(50, 2, 70), 0, PhysModel.PhysType.Platform);
+                        phys.setColorTint(new Vector3(1, 0.1f, 0.1f));
                         PhysList.Add(phys);
                     }
                 }
+            }
 
 
             //Sets mouse to center from start
@@ -119,9 +132,6 @@ namespace ToBeDetermined
 
             player.Update();
             space.Update();
-
-            Console.WriteLine(player.jumpCount);
-
 
             base.Update(gameTime);
         }

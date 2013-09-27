@@ -27,11 +27,6 @@ namespace ToBeDetermined
 
             Game1.player.KeyboardInput(curKs);
 
-            if (curKs.IsKeyDown(Keys.P))
-                Game1.PhysList.Add(new PhysModel(new Vector3(0,20,0), new Vector3(1,2,1), 1 ));
-            if (curKs.IsKeyDown(Keys.O))
-                Game1.PhysList.Add(new PhysModel(new Vector3(0, 20, 0), 1, 1));
-
             lastKs = curKs;
         }
 
