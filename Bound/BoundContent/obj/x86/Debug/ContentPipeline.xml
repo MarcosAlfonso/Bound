@@ -1,0 +1,309 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline" xmlns:Framework="Microsoft.Xna.Framework" xmlns:Processors="Microsoft.Xna.Framework.Content.Pipeline.Processors">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>Models\cubeModel.fbx</Source>
+      <Name>Models\cubeModel</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\Models\cubeModel.xnb</Output>
+      <Time>2013-09-25T00:59:10.5278-05:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\cubeModel_0.xml</Key>
+        <Value>2013-09-27T01:45:46.3454-05:00</Value>
+      </Dependency>
+      <Request>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\FBX\EA5A1FCB\cubeModel.fbm\cubeTexture_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\cubeModel2.fbx</Source>
+      <Name>Models\cubeModel2</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\Models\cubeModel2.xnb</Output>
+      <Time>2013-09-25T01:05:59.7818-05:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\cubeModel2_0.xml</Key>
+        <Value>2013-09-27T01:45:47.5194-05:00</Value>
+      </Dependency>
+      <Request>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\FBX\9C01FFD\cubeModel2.fbm\cubeTexture_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\ExtrudeCube.fbx</Source>
+      <Name>Models\ExtrudeCube</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\Models\ExtrudeCube.xnb</Output>
+      <Time>2013-09-19T13:49:34.6854-05:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\ExtrudeCube_0.xml</Key>
+        <Value>2013-09-27T01:45:47.9644-05:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>Models\gridCube.fbx</Source>
+      <Name>Models\gridCube</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\Models\gridCube.xnb</Output>
+      <Time>2013-09-25T01:12:27.6538-05:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\gridCube_0.xml</Key>
+        <Value>2013-09-27T01:45:48.0224-05:00</Value>
+      </Dependency>
+      <Request>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\FBX\CA671F60\gridCube.fbm\gridTexture_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\sphereModel.fbx</Source>
+      <Name>Models\sphereModel</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\Models\sphereModel.xnb</Output>
+      <Time>2013-09-24T01:58:17.4194-05:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\sphereModel_0.xml</Key>
+        <Value>2013-09-27T01:45:48.4924-05:00</Value>
+      </Dependency>
+      <Request>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\FBX\2CD120B3\sphereModel.fbm\cubeTexture_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\testColumn.fbx</Source>
+      <Name>Models\testColumn</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\Models\testColumn.xnb</Output>
+      <Time>2013-09-21T21:17:07.5296-05:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\testColumn_0.xml</Key>
+        <Value>2013-09-27T01:45:48.9364-05:00</Value>
+      </Dependency>
+      <Request>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\FBX\CCD2069\testColumn.fbm\columnTexture_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\columnTexture.png</Source>
+      <Name>Models\columnTexture</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\Models\columnTexture.xnb</Output>
+      <Time>2013-09-21T21:08:12-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\cubeTexture.png</Source>
+      <Name>Models\cubeTexture</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\Models\cubeTexture.xnb</Output>
+      <Time>2013-09-25T00:55:12.7168-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\gridTexture.png</Source>
+      <Name>Models\gridTexture</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\Models\gridTexture.xnb</Output>
+      <Time>2013-09-25T00:55:12-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\streettexture.dds</Source>
+      <Name>Textures\streettexture</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\Textures\streettexture.xnb</Output>
+      <Time>2013-09-20T16:27:43.1252-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\wedge_p1_diff_v1.tga</Source>
+      <Name>Textures\wedge_p1_diff_v1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\Textures\wedge_p1_diff_v1.xnb</Output>
+      <Time>2007-12-09T17:15:44-06:00</Time>
+    </Item>
+    <Item>
+      <Source>HLSL.fx</Source>
+      <Name>HLSL</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\HLSL.xnb</Output>
+      <Time>2013-09-26T13:45:56.6244-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\cubeModel.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\cubeModel_0.xml</Output>
+      <Time>2013-09-25T00:59:10.5278-05:00</Time>
+    </Item>
+    <Item>
+      <Source>obj\x86\Debug\FBX\EA5A1FCB\cubeModel.fbm\cubeTexture.png</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\FBX\EA5A1FCB\cubeModel.fbm\cubeTexture_0.xnb</Output>
+      <Time>2013-09-27T01:45:46.1684-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\cubeModel2.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\cubeModel2_0.xml</Output>
+      <Time>2013-09-25T01:05:59.7818-05:00</Time>
+    </Item>
+    <Item>
+      <Source>obj\x86\Debug\FBX\9C01FFD\cubeModel2.fbm\cubeTexture.png</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\FBX\9C01FFD\cubeModel2.fbm\cubeTexture_0.xnb</Output>
+      <Time>2013-09-27T01:45:47.5124-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\ExtrudeCube.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\ExtrudeCube_0.xml</Output>
+      <Time>2013-09-19T13:49:34.6854-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\gridCube.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\gridCube_0.xml</Output>
+      <Time>2013-09-25T01:12:27.6538-05:00</Time>
+    </Item>
+    <Item>
+      <Source>obj\x86\Debug\FBX\CA671F60\gridCube.fbm\gridTexture.png</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\FBX\CA671F60\gridCube.fbm\gridTexture_0.xnb</Output>
+      <Time>2013-09-27T01:45:48.0164-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\sphereModel.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\sphereModel_0.xml</Output>
+      <Time>2013-09-24T01:58:17.4194-05:00</Time>
+    </Item>
+    <Item>
+      <Source>obj\x86\Debug\FBX\2CD120B3\sphereModel.fbm\cubeTexture.png</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\FBX\2CD120B3\sphereModel.fbm\cubeTexture_0.xnb</Output>
+      <Time>2013-09-27T01:45:48.4654-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\testColumn.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\testColumn_0.xml</Output>
+      <Time>2013-09-21T21:17:07.5296-05:00</Time>
+    </Item>
+    <Item>
+      <Source>obj\x86\Debug\FBX\CCD2069\testColumn.fbm\columnTexture.png</Source>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyColor" Type="Framework:Color">FFFF00FF</Data>
+        <Data Key="ColorKeyEnabled" Type="bool">true</Data>
+        <Data Key="TextureFormat" Type="Processors:TextureProcessorOutputFormat">DxtCompressed</Data>
+        <Data Key="GenerateMipmaps" Type="bool">true</Data>
+        <Data Key="ResizeToPowerOfTwo" Type="bool">false</Data>
+        <Data Key="PremultiplyAlpha" Type="bool">true</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\FBX\CCD2069\testColumn.fbm\columnTexture_0.xnb</Output>
+      <Time>2013-09-27T01:45:48.9274-05:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>HiDef</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>C:\Users\Marcos\Documents\GitHub\Bound\Bound\BoundContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Marcos\Documents\GitHub\Bound\Bound\BoundContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2010-08-23T12:41:18-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2010-08-23T12:41:18-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Users\Marcos\Desktop\Dropbox\XNAProjects\VehicleSim\VehicleSim\BepuPhys\Release\BEPUphysics.dll</Key>
+        <Value>2012-05-30T17:58:16-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2011-09-03T02:48:38.6192-05:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>
