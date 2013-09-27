@@ -1,6 +1,0 @@
-﻿Work on Player Controller:
-	Tighten up jump
-
-Rendering:
-	Figure out how texturing is working a little better and simplify it
-	
