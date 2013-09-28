@@ -1,13 +1,12 @@
 ﻿Platforms:
 	Make it regeneratable in game, REMOVE PHYS from SPACE with DECONSTRUCTOR 
-	Start varying shape? Maybe make a more interesting model (octagonal, hexagonal, whatever), ramps, etc
 
 General:
 	Implement debug printing stuff, its good stuff
 
 Rendering:
 	Change lighting to directional
-	Temporary skybox for visualizing movement better
+	Fog Shader
 
 
 

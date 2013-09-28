@@ -31,7 +31,7 @@ namespace ToBeDetermined
         public PlayerController(Vector3 pos)
         {
             physModel = new PhysModel(pos, 1f, 1, PhysModel.PhysType.Player);
-            physModel.DrawModel = true;
+            physModel.DrawModel = false;
             Game1.PhysList.Add(physModel);
 
             physModel.phys.CollisionInformation.Events.InitialCollisionDetected += HandleCollision;
@@ -45,7 +45,7 @@ namespace ToBeDetermined
             {
                 if (physModel.phys.CollisionInformation == other && physModel.Type == PhysModel.PhysType.Platform)
                 {
-                    physModel.setColorTint(new Vector3(.15f,.5f,.9f));
+                    physModel.setColorTint(new Vector3(.05f,.4f,.8f));
                 }
             }
 
@@ -54,7 +54,7 @@ namespace ToBeDetermined
 
         public void Update()
         {
-            camera.position = physModel.phys.Position + camOffset;
+            camera.Position = physModel.phys.Position + camOffset;
             camera.UpdateViewMatrix();
 
             physModel.phys.AngularVelocity = new Vector3();

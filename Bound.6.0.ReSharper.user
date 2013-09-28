@@ -1,14 +1,44 @@
 <Configuration>
   <RecentFiles>
     <RecentFiles>
-      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:PlayerController.cs" caret="1237" fromTop="18" />
-      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:Game1.cs" caret="650" fromTop="0" />
-      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:ToDo.txt" caret="471" fromTop="14" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:PhysModel.cs" caret="1208" fromTop="14" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:Render.cs" caret="1612" fromTop="28" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:Input.cs" caret="742" fromTop="14" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:ToDo.txt" caret="10" fromTop="0" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:PlayerController.cs" caret="1093" fromTop="0" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:Game1.cs" caret="2753" fromTop="1" />
     </RecentFiles>
     <RecentEdits>
-      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:PlayerController.cs" caret="1237" fromTop="18" />
-      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:ToDo.txt" caret="679" fromTop="18" />
-      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:ToDo.txt" caret="306" fromTop="4" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:PlayerController.cs" caret="1537" fromTop="20" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:Game1.cs" caret="3698" fromTop="19" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:PlayerController.cs" caret="1290" fromTop="17" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:PlayerController.cs" caret="575" fromTop="9" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:PlayerController.cs" caret="1895" fromTop="21" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:Game1.cs" caret="3698" fromTop="16" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:Game1.cs" caret="3698" fromTop="27" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:Game1.cs" caret="3683" fromTop="17" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:Game1.cs" caret="3683" fromTop="17" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:Game1.cs" caret="3683" fromTop="29" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:Game1.cs" caret="3699" fromTop="29" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:PlayerController.cs" caret="2827" fromTop="17" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:ToDo.txt" caret="10" fromTop="0" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:Game1.cs" caret="2876" fromTop="12" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:Game1.cs" caret="3155" fromTop="17" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:Game1.cs" caret="2393" fromTop="17" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:PlayerController.cs" caret="1766" fromTop="15" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:PlayerController.cs" caret="943" fromTop="21" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:Render.cs" caret="1612" fromTop="19" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:PhysModel.cs" caret="1918" fromTop="17" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:Game1.cs" caret="4645" fromTop="10" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:Game1.cs" caret="4763" fromTop="14" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:Game1.cs" caret="5031" fromTop="20" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:Render.cs" caret="3139" fromTop="17" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:Render.cs" caret="3857" fromTop="14" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:PhysModel.cs" caret="1983" fromTop="23" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:PhysModel.cs" caret="1973" fromTop="18" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:Game1.cs" caret="2249" fromTop="25" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:PhysModel.cs" caret="1250" fromTop="15" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:Game1.cs" caret="3482" fromTop="17" />
     </RecentEdits>
   </RecentFiles>
   <NAntValidationSettings>
@@ -26,15 +56,83 @@
     <string />
     <integer />
     <boolean>
+      <setting name="livetemplates.csharp.usevar">True</setting>
       <setting name="SolutionAnalysisEnabled">False</setting>
     </boolean>
   </SettingsComponent>
   <CompletionStatisticsManager>
     <ItemStatistics item="CSharpCodeCompletionContext">
-      <Item value="if" priority="31" />
-      <Item value="other" priority="95" />
+      <Item value="if" priority="223" />
+      <Item value="other" priority="127" />
       <Item value="as" priority="31" />
-      <Item value="PhysModel`0" priority="32" />
+      <Item value="PhysModel`0" priority="64" />
+      <Item value="physModel" priority="287" />
+      <Item value="new" priority="159" />
+      <Item value="Vector3" priority="173" />
+      <Item value="j" priority="95" />
+      <Item value="isRunning" priority="31" />
+      <Item value="false" priority="31" />
+      <Item value="for" priority="127" />
+      <Item value="Game1`0" priority="95" />
+      <Item value="sender" priority="31" />
+      <Item value="ground" priority="31" />
+      <Item value="public" priority="95" />
+      <Item value="String`0" priority="63" />
+      <Item value="Tag" priority="95" />
+      <Item value="tag" priority="31" />
+      <Item value="enum" priority="31" />
+      <Item value="plats" priority="95" />
+      <Item value="Platform" priority="16" />
+      <Item value="bool" priority="63" />
+      <Item value="r" priority="63" />
+      <Item value="platDecide" priority="95" />
+      <Item value="break" priority="31" />
+      <Item value="var" priority="31" />
+      <Item value="int" priority="31" />
+      <Item value="i" priority="63" />
+      <Item value="static" priority="31" />
+      <Item value="Model`0" priority="31" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ToBeDetermined.PhysModel">
+      <Item value="phys" priority="242" />
+      <Item value="scaleMatrix" priority="26" />
+      <Item value="setColorTint`0" priority="54" />
+      <Item value="Type" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:BEPUphysics.Entities.Entity">
+      <Item value="Position" priority="107" />
+      <Item value="LinearDamping" priority="27" />
+      <Item value="CollisionInformation" priority="26" />
+      <Item value="Tag" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Microsoft.Xna.Framework.Vector3">
+      <Item value="X" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@ToBeDetermined.Game1">
+      <Item value="PhysList" priority="80" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Object">
+      <Item value="Equals`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@ToBeDetermined.PhysModel">
+      <Item value="PhysType`0" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@ToBeDetermined.PhysModel+PhysType">
+      <Item value="Ground" priority="53" />
+      <Item value="Player" priority="55" />
+      <Item value="Platform" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Random">
+      <Item value="Next`0" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.List`1">
+      <Item value="First`1" priority="26" />
+      <Item value="IndexOf`0" priority="26" />
+      <Item value="Indexer" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@ToBeDetermined.Render">
+      <Item value="cubeModel" priority="27" />
+      <Item value="platformModel" priority="55" />
     </ItemStatistics>
   </CompletionStatisticsManager>
 </Configuration>

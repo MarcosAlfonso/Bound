@@ -42,14 +42,10 @@ namespace ToBeDetermined
         static public FreeCamera camera;
 
         //Content
-        public static Model testColumn;
         public static Model cubeModel;
-        public static Model gridCube;
         public static Model sphereModel;
-        public static Texture2D[] columnTextures;
-        public static Texture2D[] cubeTextures;
-        public static Texture2D[] gridTextures;
-        public static Texture2D[] sphereTextures;
+        public static Model platformModel;
+        public static Model skyDomeModel;
 
         public static void Initialize()
         {
@@ -78,11 +74,7 @@ namespace ToBeDetermined
                 pass.Apply();
             }
 
-            for (int i = 0; i < 10; i++)
-            {
-                //var columnMatrix = Matrix.CreateScale(.1f)*Matrix.CreateRotationY(i)*Matrix.CreateTranslation(60*i, 0, (50*i)%150);
-                //DrawModel(testColumn, columnTextures, columnMatrix, "Simplest");
-            }
+            DrawSkyDome();
 
             foreach (PhysModel pm in Game1.PhysList)
             {
@@ -91,7 +83,7 @@ namespace ToBeDetermined
 
         }
 
-        public static void DrawModel(Model model, Texture2D[] textures, Matrix wMatrix, string technique, Vector3 tint)
+        public static void DrawModel(Model model, Matrix wMatrix, string technique, Vector3 tint)
         {
             Matrix[] modelTransforms = new Matrix[model.Bones.Count];
             model.CopyAbsoluteBoneTransformsTo(modelTransforms);
@@ -103,7 +95,7 @@ namespace ToBeDetermined
                     Matrix worldMatrix = modelTransforms[mesh.ParentBone.Index] * wMatrix;
                     currentEffect.CurrentTechnique = currentEffect.Techniques[technique];
                     currentEffect.Parameters["xWorldViewProjection"].SetValue(worldMatrix * camera.viewMatrix * camera.projectionMatrix);
-                    currentEffect.Parameters["xTexture"].SetValue(textures[i++]);
+                    //currentEffect.Parameters["xTexture"].SetValue(textures[i++]);
                     currentEffect.Parameters["xWorld"].SetValue(worldMatrix);
                     currentEffect.Parameters["xLightPos"].SetValue(lightPos);
                     currentEffect.Parameters["xLightPower"].SetValue(lightPower);
@@ -114,6 +106,30 @@ namespace ToBeDetermined
                 mesh.Draw();
             }
         }
+
+        private static void DrawSkyDome()
+        {
+            Game1.device.DepthStencilState = DepthStencilState.DepthRead;
+
+            Matrix[] modelTransforms = new Matrix[skyDomeModel.Bones.Count];
+            skyDomeModel.CopyAbsoluteBoneTransformsTo(modelTransforms);
+
+            Matrix wMatrix = Matrix.CreateTranslation(0, -0.3f, 0) * Matrix.CreateScale(100) * Matrix.CreateTranslation(camera.Position);
+            foreach (ModelMesh mesh in skyDomeModel.Meshes)
+            {
+                foreach (Effect currentEffect in mesh.Effects)
+                {
+                    Matrix worldMatrix = modelTransforms[mesh.ParentBone.Index] * wMatrix;
+                    currentEffect.CurrentTechnique = currentEffect.Techniques["SkyDome"];
+                    currentEffect.Parameters["xWorldViewProjection"].SetValue(worldMatrix * camera.viewMatrix * camera.projectionMatrix);
+                }
+                mesh.Draw();
+            }
+            Game1.device.DepthStencilState = DepthStencilState.Default;
+
+        }
+
+
 
 
 

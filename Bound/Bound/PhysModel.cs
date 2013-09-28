@@ -35,7 +35,7 @@ namespace ToBeDetermined
         public PhysModel(Vector3 pos, Vector3 dims, int mass, PhysType pType)
         {
             if (mass == 0)
-                phys = new Box(pos, dims.X,dims.Y,dims.Z);
+                phys = new Box(pos, dims.X, dims.Y, dims.Z);
             else
                 phys = new Box(pos, dims.X, dims.Y, dims.Z, mass);
 
@@ -44,7 +44,7 @@ namespace ToBeDetermined
             scaleMatrix = Matrix.CreateScale(dims*.033333333f);
 
             Game1.space.Add(phys);
-            model = Render.gridCube;
+            model = Render.platformModel;
         }
 
         public PhysModel(Vector3 pos, float radius, int mass, PhysType pType)
@@ -56,13 +56,13 @@ namespace ToBeDetermined
 
             Type = pType;
 
-            scaleMatrix = Matrix.CreateScale(radius * .033333333f);
+            scaleMatrix = Matrix.CreateScale(radius*.033333333f);
 
             Game1.space.Add(phys);
             model = Render.sphereModel;
         }
 
-        public void setColorTint( Vector3 tint)
+        public void setColorTint(Vector3 tint)
         {
             colorTint = tint;
         }
@@ -70,10 +70,7 @@ namespace ToBeDetermined
         public void Draw()
         {
             if (DrawModel)
-                Render.DrawModel(model, Render.cubeTextures, scaleMatrix*phys.WorldTransform, "Simplest", colorTint);
+                Render.DrawModel(model, scaleMatrix*phys.WorldTransform, "Simplest", colorTint);
         }
-
-
-
     }
 }

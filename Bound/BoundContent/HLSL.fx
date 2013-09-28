@@ -68,3 +68,50 @@ technique Simplest
     }
 }
 
+//------- Technique: SkyDome --------
+ struct SDVertexToPixel
+ {    
+     float4 Position         : POSITION;
+     float2 TextureCoords    : TEXCOORD0;
+     float4 ObjectPosition    : TEXCOORD1;
+ };
+ 
+ struct SDPixelToFrame
+ {
+     float4 Color : COLOR0;
+ };
+ 
+ SDVertexToPixel SkyDomeVS( float4 inPos : POSITION, float2 inTexCoords: TEXCOORD0)
+ {    
+     SDVertexToPixel Output = (SDVertexToPixel)0;
+	      
+     Output.Position = mul(inPos, xWorldViewProjection );
+     Output.ObjectPosition = inPos;
+     
+     return Output;    
+ }
+ 
+ SDPixelToFrame SkyDomePS(SDVertexToPixel PSIn)
+ {
+     SDPixelToFrame Output = (SDPixelToFrame)0;        
+
+     float4 topColor = float4(0.34f, 0.62f, .85f, 1);    
+     float4 bottomColor = float4(1.0f, 0.6f, .09f, 1);    
+     
+     float4 baseColor = lerp(bottomColor, topColor, saturate((PSIn.ObjectPosition.y)/0.55f));
+     float4 cloudValue = tex2D(TextureSampler, PSIn.TextureCoords).r;
+     
+     Output.Color = lerp(baseColor,1, cloudValue);        
+ 
+     return Output;
+ }
+ 
+ technique SkyDome
+ {
+     pass Pass0
+     {
+         VertexShader = compile vs_1_1 SkyDomeVS();
+         PixelShader = compile ps_2_0 SkyDomePS();
+     }
+ }
+

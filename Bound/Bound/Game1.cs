@@ -70,16 +70,16 @@ namespace ToBeDetermined
             Render.effect = Content.Load<Effect>("HLSL"); 
 
             //Load Textures
-            Render.testColumn = LoadModel(@"Models\testColumn", out Render.columnTextures);
-            Render.cubeModel = LoadModel(@"Models\cubeModel", out Render.cubeTextures);
-            Render.gridCube = LoadModel(@"Models\gridCube", out Render.gridTextures);
-            Render.sphereModel = LoadModel(@"Models\sphereModel", out Render.cubeTextures);
+            Render.cubeModel = LoadModel(@"Models\cubeModel");
+            Render.sphereModel = LoadModel(@"Models\sphereModel");
+            Render.platformModel = LoadModel(@"Models\platformModel");
+            Render.skyDomeModel = LoadModel(@"Models\skyDome");
 
             //Physics stuff
             space = new Space();
 
             var ground = new PhysModel(Vector3.Zero, new Vector3(5000, 5, 5000), 0, PhysModel.PhysType.Ground);
-            ground.setColorTint(new Vector3(.24f,.5f, .25f));
+            ground.setColorTint(new Vector3(.61f,.8f, .55f));
 
             PhysList.Add(ground);
 
@@ -104,8 +104,8 @@ namespace ToBeDetermined
                 {
                     if (platDecide[i])
                     {
-                        PhysModel phys = new PhysModel(new Vector3(-250 + 120*i, r.Next(20, 50), -250 + 250*j), new Vector3(50, 2, 70), 0, PhysModel.PhysType.Platform);
-                        phys.setColorTint(new Vector3(1, 0.1f, 0.1f));
+                        PhysModel phys = new PhysModel(new Vector3(-250 + 120*i, r.Next(20, 50), -250 + 250*j), new Vector3(70, 2, 70), 0, PhysModel.PhysType.Platform);
+                        phys.setColorTint(new Vector3(.85f, 0.05f, 0.05f));
                         PhysList.Add(phys);
                     }
                 }
@@ -143,15 +143,17 @@ namespace ToBeDetermined
             base.Draw(gameTime);
         }
 
-        private Model LoadModel(string assetName, out Texture2D[] textures)
+        private Model LoadModel(string assetName)//, out Texture2D[] textures)
         {
 
             Model newModel = Content.Load<Model>(assetName);
+            /*
             textures = new Texture2D[7];
             int i = 0;
             foreach (ModelMesh mesh in newModel.Meshes)
                 foreach (BasicEffect currentEffect in mesh.Effects)
                     textures[i++] = currentEffect.Texture;
+             */
 
             foreach (ModelMesh mesh in newModel.Meshes)
                 foreach (ModelMeshPart meshPart in mesh.MeshParts)

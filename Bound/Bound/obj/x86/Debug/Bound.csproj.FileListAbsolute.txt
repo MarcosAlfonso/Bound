@@ -1,20 +1,8 @@
 C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\Models\cubeModel.xnb
-C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\Models\cubeModel2.xnb
-C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\Models\ExtrudeCube.xnb
-C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\Models\gridCube.xnb
 C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\Models\sphereModel.xnb
-C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\Models\testColumn.xnb
-C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\Models\columnTexture.xnb
-C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\Models\cubeTexture.xnb
-C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\Models\gridTexture.xnb
-C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\Textures\streettexture.xnb
-C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\Textures\wedge_p1_diff_v1.xnb
 C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\HLSL.xnb
 C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\FBX\EA5A1FCB\cubeModel.fbm\cubeTexture_0.xnb
-C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\FBX\9C01FFD\cubeModel2.fbm\cubeTexture_0.xnb
-C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\FBX\CA671F60\gridCube.fbm\gridTexture_0.xnb
 C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\FBX\2CD120B3\sphereModel.fbm\cubeTexture_0.xnb
-C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\FBX\CCD2069\testColumn.fbm\columnTexture_0.xnb
 C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Bound.exe
 C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Bound.pdb
 C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\BEPUphysics.dll
@@ -23,3 +11,5 @@ C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\obj\x86\Debug\ResolveAssembly
 C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\obj\x86\Debug\Bound.exe
 C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\obj\x86\Debug\Bound.pdb
+C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\Models\platformModel.xnb
+C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\Models\skyDome.xnb
