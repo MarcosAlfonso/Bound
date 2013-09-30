@@ -1,11 +1,10 @@
 ﻿Platforms:
-	Make it regeneratable in game, REMOVE PHYS from SPACE with DECONSTRUCTOR 
+
 
 General:
-	Implement debug printing stuff, its good stuff
+	Implement time debug
 
 Rendering:
-	Change lighting to directional
 	Fog Shader
 
 

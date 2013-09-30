@@ -19,6 +19,8 @@ namespace ToBeDetermined
         public Model model;
 
         public Matrix scaleMatrix;
+        public Matrix modelOffset = Matrix.Identity;
+
 
         public Boolean DrawModel = true;
         public Vector3 colorTint = new Vector3(1);
@@ -41,7 +43,7 @@ namespace ToBeDetermined
 
             Type = pType;
 
-            scaleMatrix = Matrix.CreateScale(dims*.033333333f);
+            scaleMatrix = Matrix.CreateScale(dims*(1f/30f));
 
             Game1.space.Add(phys);
             model = Render.platformModel;
@@ -56,7 +58,7 @@ namespace ToBeDetermined
 
             Type = pType;
 
-            scaleMatrix = Matrix.CreateScale(radius*.033333333f);
+            scaleMatrix = Matrix.CreateScale(radius*(1f/30f));
 
             Game1.space.Add(phys);
             model = Render.sphereModel;
@@ -70,7 +72,12 @@ namespace ToBeDetermined
         public void Draw()
         {
             if (DrawModel)
-                Render.DrawModel(model, scaleMatrix*phys.WorldTransform, "Simplest", colorTint);
+            {
+                Render.DrawModel(model, scaleMatrix*modelOffset*phys.WorldTransform, "Simplest", colorTint);
+                //Render.DrawFog(model, scaleMatrix * modelOffset * phys.WorldTransform, 50, 100, new Vector3(255,0,0));
+            }
+
+
         }
     }
 }

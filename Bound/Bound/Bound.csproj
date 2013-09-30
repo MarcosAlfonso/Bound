@@ -112,6 +112,7 @@
   <ItemGroup>
     <Compile Include="FreeCamera.cs" />
     <Compile Include="Input.cs" />
+    <Compile Include="Level.cs" />
     <Compile Include="PhysModel.cs" />
     <Compile Include="PlayerController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -123,6 +124,7 @@
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png" />
     <Content Include="ToDo.txt" />
+    <Compile Include="Util\DebugDisplay.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BoundContent\BoundContent.contentproj">

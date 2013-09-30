@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using BEPUphysics;
 using BEPUphysics.Entities.Prefabs;
+using Bound;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -19,7 +20,7 @@ namespace ToBeDetermined
     public class Game1 : Microsoft.Xna.Framework.Game
     {
         GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
+        public static SpriteBatch spriteBatch;
 
         public const int ScreenW = 1280;
         public const int ScreenH = 720;
@@ -31,11 +32,7 @@ namespace ToBeDetermined
         public static Space space;
 
         public static Random r;
-        
-        public static List<PhysModel> PhysList = new List<PhysModel>();
-        private PhysModel tester;
 
-        public static PlayerController player;
 
         public Game1()
         {
@@ -69,48 +66,18 @@ namespace ToBeDetermined
             Render.Initialize();
             Render.effect = Content.Load<Effect>("HLSL"); 
 
-            //Load Textures
+            //Load Shit
             Render.cubeModel = LoadModel(@"Models\cubeModel");
             Render.sphereModel = LoadModel(@"Models\sphereModel");
             Render.platformModel = LoadModel(@"Models\platformModel");
             Render.skyDomeModel = LoadModel(@"Models\skyDome");
+            Render.debugFont = Content.Load<SpriteFont>("debugFont");
 
             //Physics stuff
             space = new Space();
-
-            var ground = new PhysModel(Vector3.Zero, new Vector3(5000, 5, 5000), 0, PhysModel.PhysType.Ground);
-            ground.setColorTint(new Vector3(.61f,.8f, .55f));
-
-            PhysList.Add(ground);
-
             space.ForceUpdater.Gravity = new Vector3(0, -120f, 0);
 
-            player = new PlayerController(new Vector3(0, 20, 0));
-
-            //How many rows of plats
-            for (int j = 0; j < 60; j++)
-            {
-                //Picks which platforms will spawn, 50/50
-                bool[] platDecide = {r.Next(0, 2) == 1, r.Next(0, 2) == 1, r.Next(0, 2) == 1, r.Next(0, 2) == 1};
-
-                //If none are true, start over
-                if (!platDecide[0] && !platDecide[1] && !platDecide[2] && !platDecide[3])
-                {
-                    platDecide[r.Next(0, 4)] = true;
-                }
-
-                //if at least one is true, do eet
-                for (int i = 0; i < 4; i++)
-                {
-                    if (platDecide[i])
-                    {
-                        PhysModel phys = new PhysModel(new Vector3(-250 + 120*i, r.Next(20, 50), -250 + 250*j), new Vector3(70, 2, 70), 0, PhysModel.PhysType.Platform);
-                        phys.setColorTint(new Vector3(.85f, 0.05f, 0.05f));
-                        PhysList.Add(phys);
-                    }
-                }
-            }
-
+            Level.Initialize();
 
             //Sets mouse to center from start
             Mouse.SetPosition(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2);
@@ -130,7 +97,7 @@ namespace ToBeDetermined
             if (IsActive)
                 Input.Update(timeDifference);
 
-            player.Update();
+            Level.player.Update();
             space.Update();
 
             base.Update(gameTime);

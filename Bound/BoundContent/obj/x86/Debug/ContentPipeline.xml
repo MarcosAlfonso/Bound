@@ -36,7 +36,7 @@
       <Processor>EffectProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\HLSL.xnb</Output>
-      <Time>2013-09-28T03:17:27.8834-05:00</Time>
+      <Time>2013-09-30T01:46:24.2198-05:00</Time>
     </Item>
     <Item>
       <Source>Models\cubeModel.fbx</Source>
@@ -91,10 +91,10 @@
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\Models\platformModel.xnb</Output>
-      <Time>2013-09-27T18:36:54.5044-05:00</Time>
+      <Time>2013-09-28T15:01:33.1032-05:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\platformModel_0.xml</Key>
-        <Value>2013-09-27T18:39:17.6154-05:00</Value>
+        <Value>2013-09-28T15:04:49.8252-05:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -102,7 +102,7 @@
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\platformModel_0.xml</Output>
-      <Time>2013-09-27T18:36:54.5044-05:00</Time>
+      <Time>2013-09-28T15:01:33.1032-05:00</Time>
     </Item>
     <Item>
       <Source>Models\skyDome.x</Source>
@@ -123,6 +123,15 @@
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\skyDome_0.xml</Output>
       <Time>2013-09-28T02:41:49.9164-05:00</Time>
+    </Item>
+    <Item>
+      <Source>debugFont.spritefont</Source>
+      <Name>debugFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\debugFont.xnb</Output>
+      <Time>2013-09-28T14:07:44.0152-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

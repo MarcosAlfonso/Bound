@@ -7,6 +7,7 @@ using BEPUphysics.Collidables.MobileCollidables;
 using BEPUphysics.Entities.Prefabs;
 using BEPUphysics.Materials;
 using BEPUphysics.NarrowPhaseSystems.Pairs;
+using Bound;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 
@@ -18,13 +19,13 @@ namespace ToBeDetermined
 
         //Camera
         private FreeCamera camera;
-        private Vector3 camOffset = new Vector3(0, 3, 0);
+        private Vector3 camOffset = new Vector3(0, 4, 0);
 
         public int jumpCount = 2;
 
-        private float runSpeed = 120;
+        public float runSpeed = 120;
         private Boolean isRunning;
-        private float boostSpeed;
+        public float boostSpeed;
         private Boolean isBoosting;
 
 
@@ -32,7 +33,7 @@ namespace ToBeDetermined
         {
             physModel = new PhysModel(pos, 1f, 1, PhysModel.PhysType.Player);
             physModel.DrawModel = false;
-            Game1.PhysList.Add(physModel);
+            Level.PhysList.Add(physModel);
 
             physModel.phys.CollisionInformation.Events.InitialCollisionDetected += HandleCollision;
 
@@ -41,15 +42,24 @@ namespace ToBeDetermined
 
         private void HandleCollision(EntityCollidable sender, Collidable other, CollidablePairHandler pair)
         {
-            foreach (var physModel in Game1.PhysList)
+            foreach (var physModel in Level.PhysList)
             {
                 if (physModel.phys.CollisionInformation == other && physModel.Type == PhysModel.PhysType.Platform)
                 {
-                    physModel.setColorTint(new Vector3(.05f,.4f,.8f));
+                    if (pair.Contacts[0].Contact.Normal.Y > .8f)
+                    {
+                        jumpCount = 2;
+                        physModel.setColorTint(new Vector3(.05f, .4f, .8f));
+                    }
+                    else if (jumpCount == 0)
+                    {
+                        physModel.phys.LinearVelocity = new Vector3(physModel.phys.LinearVelocity.X, 0, physModel.phys.LinearVelocity.Y);
+                        Level.player.isRunning = false;
+                    }
                 }
             }
 
-            jumpCount = 2;
+
         }
 
         public void Update()
@@ -65,6 +75,8 @@ namespace ToBeDetermined
             if (isRunning)
                 physModel.phys.LinearVelocity = new Vector3((float)Math.Sin(camera.leftrightRot) * -(runSpeed + boostSpeed), physModel.phys.LinearVelocity.Y, (float)Math.Cos(camera.leftrightRot) * -(runSpeed + boostSpeed));
 
+            if (physModel.phys.Position.Y < 350)
+                Kill();
         }
 
         public void KeyboardInput(KeyboardState ks)
@@ -73,24 +85,20 @@ namespace ToBeDetermined
                 isRunning = !isRunning;
 
             if (ks.IsKeyDown(Keys.Space))
-                physModel.phys.LinearVelocity = new Vector3(physModel.phys.LinearVelocity.X, 10, physModel.phys.LinearVelocity.Z);
+                physModel.phys.LinearVelocity = new Vector3(physModel.phys.LinearVelocity.X, 50, physModel.phys.LinearVelocity.Z);
 
             if (ks.IsKeyDown(Keys.W) && !Input.lastKs.IsKeyDown(Keys.W))
                 isBoosting = !isBoosting;
 
+            if (ks.IsKeyDown(Keys.G) && !Input.lastKs.IsKeyDown(Keys.G))
+            {
+                Level.ClearLevel();
+                Level.GenerateLevel();
+            }
+
             if (ks.IsKeyDown(Keys.R) && !Input.lastKs.IsKeyDown(Keys.R))
             {
-                physModel.phys.Position = Game1.PhysList[2].phys.Position + new Vector3(0, 5,0);
-                physModel.phys.LinearVelocity = new Vector3();
-                isRunning = false;
-                isBoosting = false;
-                boostSpeed = 0.0f;
-
-                foreach (var plats in Game1.PhysList)
-                {
-                    if (plats.Type == PhysModel.PhysType.Platform)
-                        plats.setColorTint(new Vector3(1, 0.1f, 0.1f));
-                }
+                Kill();
             }
 
         }
@@ -118,6 +126,21 @@ namespace ToBeDetermined
                 isRunning = false;
             }
 
+        }
+
+        public void Kill()
+        {
+            physModel.phys.Position = Level.PhysList[2].phys.Position + new Vector3(0, 550, 0);
+            physModel.phys.LinearVelocity = new Vector3();
+            isRunning = false;
+            isBoosting = false;
+            boostSpeed = 0.0f;
+
+            foreach (var plats in Level.PhysList)
+            {
+                if (plats.Type == PhysModel.PhysType.Platform)
+                    plats.setColorTint(new Vector3(1, 0.1f, 0.1f));
+            }
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Bound;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -25,7 +26,7 @@ namespace ToBeDetermined
         {
             KeyboardState curKs = Microsoft.Xna.Framework.Input.Keyboard.GetState();
 
-            Game1.player.KeyboardInput(curKs);
+            Level.player.KeyboardInput(curKs);
 
             lastKs = curKs;
         }
@@ -35,7 +36,7 @@ namespace ToBeDetermined
         {
             MouseState curMs = Microsoft.Xna.Framework.Input.Mouse.GetState();
 
-            Game1.player.MouseInput(curMs, amount);
+            Level.player.MouseInput(curMs, amount);
 
             lastMs = curMs;
 

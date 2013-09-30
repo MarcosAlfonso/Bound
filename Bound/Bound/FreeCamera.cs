@@ -15,7 +15,7 @@ namespace ToBeDetermined
 
         //Camera vars
         public Vector3 Position = new Vector3(130, 30, -50);
-        public float leftrightRot = MathHelper.PiOver2;
+        public float leftrightRot = MathHelper.Pi;
         public float updownRot = -MathHelper.Pi / 10.0f;
         
         //Control
@@ -24,7 +24,7 @@ namespace ToBeDetermined
 
         public FreeCamera()
         {
-            projectionMatrix = Matrix.CreatePerspectiveFieldOfView(MathHelper.PiOver4*1.25f, Game1.device.Viewport.AspectRatio, 1.0f, 1000.0f);
+            projectionMatrix = Matrix.CreatePerspectiveFieldOfView(MathHelper.PiOver4*1.25f, Game1.device.Viewport.AspectRatio, 1.0f, 3000.0f);
 
             UpdateViewMatrix();
         }

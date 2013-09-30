@@ -1,9 +1,17 @@
 float4x4 xWorldViewProjection;
+float4x4 xProjection;
+float4x4 xView;
 float4x4 xWorld;
-float3 xLightPos;
+float3 xLightDir;
 float xLightPower;
 float xAmbient;
 float3 xColor;
+
+float3 cameraPosition;
+
+float xFogStart;
+float xFogEnd;
+float3 xFogColor;
 
 Texture xTexture;
 sampler TextureSampler = sampler_state { texture = <xTexture> ; magfilter = LINEAR; minfilter = LINEAR; mipfilter=LINEAR; AddressU = mirror; AddressV = mirror;};
@@ -15,6 +23,7 @@ struct VertexToPixel
     float2 TexCoords    : TEXCOORD0;
     float3 Normal        : TEXCOORD1;
     float3 Position3D    : TEXCOORD2;
+	float Depth			: TEXCOORD3;
 };
 
 //Data that is sent to screen from Pixel Shader
@@ -39,6 +48,7 @@ VertexToPixel SimplestVertexShader( float4 inPos : POSITION0, float3 inNormal: N
     Output.TexCoords = inTexCoords;
     Output.Normal = normalize(mul(inNormal, (float3x3)xWorld));    
     Output.Position3D = mul(inPos, xWorld);
+	Output.Depth = Output.Position.z;
 
     return Output;
 }
@@ -48,13 +58,15 @@ PixelToFrame SimplestPixelShader(VertexToPixel PSIn)
 {
     PixelToFrame Output = (PixelToFrame)0;    
 
-    float diffuseLightingFactor = DotProduct(xLightPos, PSIn.Position3D, PSIn.Normal);
+    float diffuseLightingFactor = dot(xLightDir, PSIn.Normal);
     diffuseLightingFactor = saturate(diffuseLightingFactor);
     diffuseLightingFactor *= xLightPower;
 
+	float l = saturate((PSIn.Depth - xFogStart) / (xFogEnd - xFogStart));
+
     PSIn.TexCoords.y--;
 	float3 baseColor = xColor;
-    Output.Color.rgb = baseColor*(diffuseLightingFactor + xAmbient);
+	Output.Color = float4(lerp(baseColor,xFogColor, l)*(diffuseLightingFactor + xAmbient), 1);
 
     return Output;
 }
