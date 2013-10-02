@@ -11,7 +11,7 @@ using Bound;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 
-namespace ToBeDetermined
+namespace Bound
 {
     public class PlayerController
     {
@@ -28,6 +28,10 @@ namespace ToBeDetermined
         public float boostSpeed;
         private Boolean isBoosting;
 
+        //Score Keeping
+        public PhysModel.PhysType lastPlatform = PhysModel.PhysType.PlatformTouched;
+        public int platScore;
+        public int combo;
 
         public PlayerController(Vector3 pos)
         {
@@ -44,17 +48,24 @@ namespace ToBeDetermined
         {
             foreach (var physModel in Level.PhysList)
             {
-                if (physModel.phys.CollisionInformation == other && physModel.Type == PhysModel.PhysType.Platform)
+                if (physModel.phys.CollisionInformation == other && (int)physModel.curType <= 4)
                 {
                     if (pair.Contacts[0].Contact.Normal.Y > .8f)
                     {
                         jumpCount = 2;
-                        physModel.setColorTint(new Vector3(.05f, .4f, .8f));
+                        if (lastPlatform == physModel.curType && lastPlatform != PhysModel.PhysType.PlatformTouched)
+                            combo++;
+                        else
+                            combo = 1;
+
+                        platScore += combo;
+
+                        lastPlatform = physModel.curType;
+                        physModel.curType = PhysModel.PhysType.PlatformTouched;
                     }
                     else if (jumpCount == 0)
                     {
-                        physModel.phys.LinearVelocity = new Vector3(physModel.phys.LinearVelocity.X, 0, physModel.phys.LinearVelocity.Y);
-                        Level.player.isRunning = false;
+                        Kill();
                     }
                 }
             }
@@ -70,12 +81,12 @@ namespace ToBeDetermined
             physModel.phys.AngularVelocity = new Vector3();
 
             if (isBoosting)
-                boostSpeed += .04f;
+                boostSpeed += .03f;
 
             if (isRunning)
                 physModel.phys.LinearVelocity = new Vector3((float)Math.Sin(camera.leftrightRot) * -(runSpeed + boostSpeed), physModel.phys.LinearVelocity.Y, (float)Math.Cos(camera.leftrightRot) * -(runSpeed + boostSpeed));
 
-            if (physModel.phys.Position.Y < 350)
+            if (physModel.phys.Position.Y < 100)
                 Kill();
         }
 
@@ -95,6 +106,12 @@ namespace ToBeDetermined
                 Level.ClearLevel();
                 Level.GenerateLevel();
             }
+
+            if (ks.IsKeyDown(Keys.PageUp) && !Input.lastKs.IsKeyDown(Keys.PageUp))
+                runSpeed += 75;
+
+            if (ks.IsKeyDown(Keys.PageDown) && !Input.lastKs.IsKeyDown(Keys.PageDown))
+                runSpeed -= 75;
 
             if (ks.IsKeyDown(Keys.R) && !Input.lastKs.IsKeyDown(Keys.R))
             {
@@ -116,7 +133,7 @@ namespace ToBeDetermined
             if (curMs.LeftButton == ButtonState.Pressed && Input.lastMs.LeftButton == ButtonState.Released && jumpCount > 0)
             {
                 physModel.phys.LinearVelocity = new Vector3(physModel.phys.LinearVelocity.X, 0, physModel.phys.LinearVelocity.Y);
-                physModel.phys.ApplyImpulse(new Vector3(0), new Vector3(0,70,0));;
+                physModel.phys.ApplyImpulse(new Vector3(0), new Vector3(0,80,0));
                 jumpCount--;
             }
 
@@ -133,13 +150,14 @@ namespace ToBeDetermined
             physModel.phys.Position = Level.PhysList[2].phys.Position + new Vector3(0, 550, 0);
             physModel.phys.LinearVelocity = new Vector3();
             isRunning = false;
+            runSpeed = 120;
             isBoosting = false;
             boostSpeed = 0.0f;
+            platScore = 0;
 
             foreach (var plats in Level.PhysList)
             {
-                if (plats.Type == PhysModel.PhysType.Platform)
-                    plats.setColorTint(new Vector3(1, 0.1f, 0.1f));
+                plats.Reset();
             }
         }
     }

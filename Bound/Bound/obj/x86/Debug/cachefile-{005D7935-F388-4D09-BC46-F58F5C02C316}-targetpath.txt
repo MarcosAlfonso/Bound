@@ -6,3 +6,4 @@ Content\FBX\2CD120B3\sphereModel.fbm\cubeTexture_0.xnb
 Content\Models\platformModel.xnb
 Content\Models\skyDome.xnb
 Content\debugFont.xnb
+Content\Models\skyboxModel.xnb

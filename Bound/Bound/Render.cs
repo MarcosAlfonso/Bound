@@ -6,37 +6,16 @@ using Bound;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace ToBeDetermined
+namespace Bound
 {
     public static class Render
     {
-        private struct MyOwnVertexFormat
-        {
-            private Vector3 position;
-            private Vector2 texCoord;
-            private Vector3 normal;
-
-            public MyOwnVertexFormat(Vector3 position, Vector2 texCoord, Vector3 normal)
-            {
-                this.position = position;
-                this.texCoord = texCoord;
-                this.normal = normal;
-            }
-
-            public static readonly VertexDeclaration VertexDeclaration = new VertexDeclaration
-                (
-                new VertexElement(0, VertexElementFormat.Vector3, VertexElementUsage.Position, 0),
-                new VertexElement(sizeof (float)*3, VertexElementFormat.Vector2, VertexElementUsage.TextureCoordinate, 0),
-                new VertexElement(sizeof (float)*(3 + 2), VertexElementFormat.Vector3, VertexElementUsage.Normal, 0)
-                );
-        }
-
         public static Effect effect;
 
         //Lighting
-        public static Vector3 lightDir = Vector3.Normalize(new Vector3(-.5f, 1, -.5f));
-        private static float lightPower = 0.8f;
-        private static float ambientPower = 0.2f;
+        public static Vector3 lightDir = Vector3.Normalize(new Vector3(0, 1, 0));
+        private static float lightPower = 0.7f;
+        private static float ambientPower = 0.7f;
         public static Vector3 tint = new Vector3(255, 1.0f, 1.0f);
 
         //Cameras
@@ -62,24 +41,11 @@ namespace ToBeDetermined
         {
             Game1.device.BlendState = BlendState.Opaque;
             Game1.device.DepthStencilState = DepthStencilState.Default;
-            Game1.device.Clear(ClearOptions.Target | ClearOptions.DepthBuffer, new Color(0,0,0), 1.0f, 0);
+            Game1.device.Clear(ClearOptions.Target | ClearOptions.DepthBuffer, new Color(255,255,255), 1.0f, 0);
             var rs = new RasterizerState();
             rs.CullMode = CullMode.None;
             //rs.FillMode = FillMode.WireFrame;
             Game1.device.RasterizerState = rs;
-
-            effect.CurrentTechnique = effect.Techniques["Simplest"];
-
-            effect.Parameters["xWorldViewProjection"].SetValue(Matrix.Identity*camera.viewMatrix*camera.projectionMatrix);
-            effect.Parameters["xWorld"].SetValue(Matrix.Identity);
-            effect.Parameters["xLightDir"].SetValue(lightDir);
-            effect.Parameters["xLightPower"].SetValue(lightPower);
-            effect.Parameters["xAmbient"].SetValue(ambientPower);
-
-            foreach (EffectPass pass in effect.CurrentTechnique.Passes)
-            {
-                pass.Apply();
-            }
 
             DrawSkyDome();
 
@@ -88,9 +54,17 @@ namespace ToBeDetermined
                 pm.Draw();
             }
 
+            foreach (VisModel vm in Level.VisList)
+            {
+                vm.Draw();
+            }
 
-
+            //Debugs
             debugDisplay.addDebug("Current Speed: " + (Level.player.runSpeed + Level.player.boostSpeed));
+            debugDisplay.addDebug("Current Position: " + Level.player.physModel.phys.Position);
+            debugDisplay.addDebug("Last Platform: " + Level.player.lastPlatform );
+            debugDisplay.addDebug("Combo: " + Level.player.combo);
+            debugDisplay.addDebug("Score " + Level.player.platScore);
 
             Game1.spriteBatch.Begin();
             debugDisplay.Draw();
@@ -117,11 +91,11 @@ namespace ToBeDetermined
                     currentEffect.Parameters["xAmbient"].SetValue(ambientPower);
                     currentEffect.Parameters["xColor"].SetValue(tint);
                     //float xFogStart;
-                    currentEffect.Parameters["xFogStart"].SetValue(400);
+                    currentEffect.Parameters["xFogStart"].SetValue(650);
                     //float xFogEnd;
-                    currentEffect.Parameters["xFogEnd"].SetValue(1000);
+                    currentEffect.Parameters["xFogEnd"].SetValue(2000);
                     //float3 xFogColor;
-                    currentEffect.Parameters["xFogColor"].SetValue(new Vector3(0));
+                    currentEffect.Parameters["xFogColor"].SetValue(new Vector3(1));
 
                     //float4x4 World;
                     currentEffect.Parameters["xWorld"].SetValue(worldMatrix);
@@ -152,8 +126,9 @@ namespace ToBeDetermined
                 foreach (Effect currentEffect in mesh.Effects)
                 {
                     Matrix worldMatrix = modelTransforms[mesh.ParentBone.Index]*wMatrix;
-                    currentEffect.CurrentTechnique = currentEffect.Techniques["Simplest"];
+                    currentEffect.CurrentTechnique = currentEffect.Techniques["SkyDome"];
                     currentEffect.Parameters["xWorldViewProjection"].SetValue(worldMatrix*camera.viewMatrix*camera.projectionMatrix);
+                    currentEffect.Parameters["xWorld"].SetValue(worldMatrix);
                 }
                 mesh.Draw();
             }

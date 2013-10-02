@@ -1,12 +1,25 @@
 ﻿Platforms:
+	Better level generation
+	Climbing portion? Move slowly but jump high?
 
 
-General:
-	Implement time debug
+Collectables:
+	Coins - Overlapping rotating cubes to make this model
+	Powerups?
+
+GUI:
+	Main Menu
+	Score
+	Speed
+
+Utilities:
+	Implement timed debug
 
 Rendering:
-	Fog Shader
-
+	Big monoliths on each side
+	Clean up HLSL, extra paramaters and such with new fog stuff
+	Look at altitude fog stuff some more
+	Stars?
 
 
 

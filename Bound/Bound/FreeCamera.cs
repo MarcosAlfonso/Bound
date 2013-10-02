@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 
-namespace ToBeDetermined
+namespace Bound
 {
     public class FreeCamera
     {
@@ -24,7 +24,7 @@ namespace ToBeDetermined
 
         public FreeCamera()
         {
-            projectionMatrix = Matrix.CreatePerspectiveFieldOfView(MathHelper.PiOver4*1.25f, Game1.device.Viewport.AspectRatio, 1.0f, 3000.0f);
+            projectionMatrix = Matrix.CreatePerspectiveFieldOfView(MathHelper.PiOver4*1.3f, Game1.device.Viewport.AspectRatio, 1.0f, 300000.0f);
 
             UpdateViewMatrix();
         }

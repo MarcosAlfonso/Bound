@@ -32,13 +32,6 @@ struct PixelToFrame
     float4 Color        : COLOR0;
 };
 
-//Dot Product for lighting
-float DotProduct(float3 lightPos, float3 pos3D, float3 normal)
-{
-    float3 lightDir = normalize(pos3D - lightPos);
-    return dot(-lightDir, normal);    
-}
-
 //Vertex Shader, sends data to Pixel Shader
 VertexToPixel SimplestVertexShader( float4 inPos : POSITION0, float3 inNormal: NORMAL0, float2 inTexCoords : TEXCOORD0)
 {
@@ -46,9 +39,11 @@ VertexToPixel SimplestVertexShader( float4 inPos : POSITION0, float3 inNormal: N
     
     Output.Position =mul(inPos, xWorldViewProjection);
     Output.TexCoords = inTexCoords;
-    Output.Normal = normalize(mul(inNormal, (float3x3)xWorld));    
+    Output.Normal = normalize(mul(inNormal, xWorld));    
     Output.Position3D = mul(inPos, xWorld);
-	Output.Depth = Output.Position.z;
+	
+
+	Output.Depth = distance(float3(Output.Position3D.xyz),float3(cameraPosition.xyz));
 
     return Output;
 }
@@ -62,11 +57,18 @@ PixelToFrame SimplestPixelShader(VertexToPixel PSIn)
     diffuseLightingFactor = saturate(diffuseLightingFactor);
     diffuseLightingFactor *= xLightPower;
 
-	float l = saturate((PSIn.Depth - xFogStart) / (xFogEnd - xFogStart));
+	float l;
+
+	if (PSIn.Position3D.y > 300)
+		l = saturate((PSIn.Depth - xFogStart) / (xFogEnd - xFogStart));
+	else
+		l = saturate((PSIn.Depth - xFogStart) / (xFogEnd - xFogStart) + (-PSIn.Position3D.y+300)/500);
+
 
     PSIn.TexCoords.y--;
-	float3 baseColor = xColor;
-	Output.Color = float4(lerp(baseColor,xFogColor, l)*(diffuseLightingFactor + xAmbient), 1);
+	float3 lightColor = xColor*(diffuseLightingFactor + xAmbient);
+	//float3 fogColor = lerp(xFogColor, float3(0.18f, 0.33f, .54f), PSIn.Position3D.y);
+	Output.Color = float4(lerp(lightColor,xFogColor, l),1);
 
     return Output;
 }
@@ -86,6 +88,7 @@ technique Simplest
      float4 Position         : POSITION;
      float2 TextureCoords    : TEXCOORD0;
      float4 ObjectPosition    : TEXCOORD1;
+	 float3 Normal			: TEXCOORD2;
  };
  
  struct SDPixelToFrame
@@ -93,27 +96,41 @@ technique Simplest
      float4 Color : COLOR0;
  };
  
- SDVertexToPixel SkyDomeVS( float4 inPos : POSITION, float2 inTexCoords: TEXCOORD0)
+ SDVertexToPixel SkyDomeVS( float4 inPos : POSITION, float3 inNormal: NORMAL0, float2 inTexCoords: TEXCOORD0)
  {    
      SDVertexToPixel Output = (SDVertexToPixel)0;
 	      
      Output.Position = mul(inPos, xWorldViewProjection );
-     Output.ObjectPosition = inPos;
+     Output.ObjectPosition = mul(inPos,xWorld);
+	 Output.Normal = normalize(mul(inNormal, xWorld));
      
      return Output;    
  }
+
+// -------------------------------------------------------------
+// Miscellaneous Functions
+// -------------------------------------------------------------
+float3 interpolate(float3 origin, float3 destination, float startStep, float endStep, float step)
+{
+	#ifdef HERMITE_INTERPOLATION
+		return lerp(origin, destination, smoothstep(startStep, endStep, step));
+	#elif defined(LINEAR_INTERPOLATION)
+		return lerp(origin, destination, saturate((step - startStep) / (endStep - startStep)));
+	#else // Fallback so that it compiles...
+		return 0.0f.rrr;
+	#endif
+}
  
  SDPixelToFrame SkyDomePS(SDVertexToPixel PSIn)
  {
-     SDPixelToFrame Output = (SDPixelToFrame)0;        
+     SDPixelToFrame Output = (SDPixelToFrame)0;
+	 
+	 float normalY = PSIn.Normal.y;     
 
-     float4 topColor = float4(0.34f, 0.62f, .85f, 1);    
-     float4 bottomColor = float4(1.0f, 0.6f, .09f, 1);    
-     
-     float4 baseColor = lerp(bottomColor, topColor, saturate((PSIn.ObjectPosition.y)/0.55f));
-     float4 cloudValue = tex2D(TextureSampler, PSIn.TextureCoords).r;
-     
-     Output.Color = lerp(baseColor,1, cloudValue);        
+     float4 topColor = float4(0.15f, 0.3f, .5f, 1);    
+     float4 bottomColor = float4(1.0f, 1.0f, 1.0f, 1);
+	     
+     Output.Color = lerp(bottomColor,topColor,saturate(((normalY-.1f)/.85))); 
  
      return Output;
  }

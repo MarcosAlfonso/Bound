@@ -1,6 +1,6 @@
 using System;
 
-namespace ToBeDetermined
+namespace Bound
 {
 #if WINDOWS || XBOX
     static class Program

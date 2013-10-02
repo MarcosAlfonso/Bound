@@ -1,34 +1,36 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
-using ToBeDetermined;
 
-public class DebugDisplay
+namespace Bound
 {
-    private static List<string> strings;
-    private int x;
-    private int y;
-    
-    public DebugDisplay(int xpos, int ypos)
+    public class DebugDisplay
     {
-        strings = new List<string>();
-        x = xpos;
-        y = ypos;
-    }
+        private static List<string> strings;
+        private int x;
+        private int y;
 
-    public void addDebug(string str)
-    {
-        strings.Add(str);
-    }
-
-    public void Draw()
-    {
-        foreach (string s in strings)
+        public DebugDisplay(int xpos, int ypos)
         {
-            int i = strings.IndexOf(s);
-            Game1.spriteBatch.DrawString(Render.debugFont, s, new Vector2(x,y + i * 20), Color.White);
+            strings = new List<string>();
+            x = xpos;
+            y = ypos;
         }
-        
-        strings.Clear();
 
+        public void addDebug(string str)
+        {
+            strings.Add(str);
+        }
+
+        public void Draw()
+        {
+            foreach (string s in strings)
+            {
+                int i = strings.IndexOf(s);
+                Game1.spriteBatch.DrawString(Render.debugFont, s, new Vector2(x, y + i*24), Color.Black);
+            }
+
+            strings.Clear();
+
+        }
     }
 }

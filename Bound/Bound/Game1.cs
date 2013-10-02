@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
-namespace ToBeDetermined
+namespace Bound
 {
     /// <summary>
     /// This is the main type for your game
@@ -22,8 +22,8 @@ namespace ToBeDetermined
         GraphicsDeviceManager graphics;
         public static SpriteBatch spriteBatch;
 
-        public const int ScreenW = 1280;
-        public const int ScreenH = 720;
+        public const int ScreenW = 1920;
+        public const int ScreenH = 1080;
 
         public static GraphicsDevice device;
 
@@ -57,6 +57,8 @@ namespace ToBeDetermined
             //Sets window size
             graphics.PreferredBackBufferWidth = ScreenW;
             graphics.PreferredBackBufferHeight = ScreenH;
+            graphics.PreferMultiSampling = true;
+            graphics.IsFullScreen = true;
             graphics.ApplyChanges();
 
             //graphics stuff
@@ -70,7 +72,7 @@ namespace ToBeDetermined
             Render.cubeModel = LoadModel(@"Models\cubeModel");
             Render.sphereModel = LoadModel(@"Models\sphereModel");
             Render.platformModel = LoadModel(@"Models\platformModel");
-            Render.skyDomeModel = LoadModel(@"Models\skyDome");
+            Render.skyDomeModel = LoadModel(@"Models\skyboxModel");
             Render.debugFont = Content.Load<SpriteFont>("debugFont");
 
             //Physics stuff
@@ -110,17 +112,10 @@ namespace ToBeDetermined
             base.Draw(gameTime);
         }
 
-        private Model LoadModel(string assetName)//, out Texture2D[] textures)
+        private Model LoadModel(string assetName)
         {
 
             Model newModel = Content.Load<Model>(assetName);
-            /*
-            textures = new Texture2D[7];
-            int i = 0;
-            foreach (ModelMesh mesh in newModel.Meshes)
-                foreach (BasicEffect currentEffect in mesh.Effects)
-                    textures[i++] = currentEffect.Texture;
-             */
 
             foreach (ModelMesh mesh in newModel.Meshes)
                 foreach (ModelMeshPart meshPart in mesh.MeshParts)
