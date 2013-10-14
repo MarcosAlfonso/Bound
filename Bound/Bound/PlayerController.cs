@@ -28,14 +28,17 @@ namespace Bound
         public float boostSpeed;
         private Boolean isBoosting;
 
+        private Boolean isSliding;
+        private PhysModel currentSlide;
+
         //Score Keeping
-        public PhysModel.PhysType lastPlatform = PhysModel.PhysType.PlatformTouched;
+        public PhysModel.ColorType lastColor = PhysModel.ColorType.Touched;
         public int platScore;
         public int combo;
 
         public PlayerController(Vector3 pos)
         {
-            physModel = new PhysModel(pos, 1f, 1, PhysModel.PhysType.Player);
+            physModel = new PhysModel(pos, 1f, 1, PhysModel.PhysType.Player, PhysModel.ColorType.Red);
             physModel.DrawModel = false;
             Level.PhysList.Add(physModel);
 
@@ -46,30 +49,38 @@ namespace Bound
 
         private void HandleCollision(EntityCollidable sender, Collidable other, CollidablePairHandler pair)
         {
-            foreach (var physModel in Level.PhysList)
+            foreach (var physCollider in Level.PhysList)
             {
-                if (physModel.phys.CollisionInformation == other && (int)physModel.curType <= 4)
+                if (physCollider.phys.CollisionInformation == other)
                 {
-                    if (pair.Contacts[0].Contact.Normal.Y > .8f)
+
+                    //Column Platform Physics
+                    if (physCollider.physType == PhysModel.PhysType.ColumnPlatform )
+                    {
+                        if (pair.Contacts[0].Contact.Normal.Y > .8f)
+                        {
+                            jumpCount = 2;
+                            if (lastColor == physCollider.curColor && lastColor != PhysModel.ColorType.Touched)
+                                combo++;
+                            else
+                                combo = 1;
+
+                            platScore += combo;
+
+                            lastColor = physCollider.curColor;
+                            physCollider.curColor = PhysModel.ColorType.Touched;
+                        }
+                    }
+                    else if (physCollider.physType == PhysModel.PhysType.WallRunPlatform)
                     {
                         jumpCount = 2;
-                        if (lastPlatform == physModel.curType && lastPlatform != PhysModel.PhysType.PlatformTouched)
-                            combo++;
-                        else
-                            combo = 1;
-
-                        platScore += combo;
-
-                        lastPlatform = physModel.curType;
-                        physModel.curType = PhysModel.PhysType.PlatformTouched;
-                    }
-                    else if (jumpCount == 0)
-                    {
-                        Kill();
+                        isSliding = true;
+                        currentSlide = physCollider;
+                        physModel.phys.IsAffectedByGravity = false;
+                        physCollider.curColor = PhysModel.ColorType.Touched;
                     }
                 }
             }
-
 
         }
 
@@ -84,9 +95,31 @@ namespace Bound
                 boostSpeed += .03f;
 
             if (isRunning)
-                physModel.phys.LinearVelocity = new Vector3((float)Math.Sin(camera.leftrightRot) * -(runSpeed + boostSpeed), physModel.phys.LinearVelocity.Y, (float)Math.Cos(camera.leftrightRot) * -(runSpeed + boostSpeed));
+            {
+                if (isSliding)
+                {
+                    if (physModel.phys.LinearVelocity.Z > 0)
+                        physModel.phys.LinearVelocity = new Vector3(0, 0, runSpeed + boostSpeed);
+                    else
+                        physModel.phys.LinearVelocity = new Vector3(0, 0, -(runSpeed + boostSpeed));
+                    
+                        
+                    
 
-            if (physModel.phys.Position.Y < 100)
+                    if (physModel.phys.Position.Z > currentSlide.phys.Position.Z + 125 || physModel.phys.Position.Z < currentSlide.phys.Position.Z - 125)
+                    {
+                        isSliding = false;
+                        physModel.phys.IsAffectedByGravity = true;
+
+                    }
+                }
+                else
+                {
+                    physModel.phys.LinearVelocity = new Vector3((float)Math.Sin(camera.leftrightRot) * -(runSpeed + boostSpeed), physModel.phys.LinearVelocity.Y, (float)Math.Cos(camera.leftrightRot) * -(runSpeed + boostSpeed));
+                }
+            }
+
+            if (physModel.phys.Position.Y < 200)
                 Kill();
         }
 
@@ -132,6 +165,9 @@ namespace Bound
 
             if (curMs.LeftButton == ButtonState.Pressed && Input.lastMs.LeftButton == ButtonState.Released && jumpCount > 0)
             {
+                isSliding = false;
+
+                physModel.phys.IsAffectedByGravity = true;
                 physModel.phys.LinearVelocity = new Vector3(physModel.phys.LinearVelocity.X, 0, physModel.phys.LinearVelocity.Y);
                 physModel.phys.ApplyImpulse(new Vector3(0), new Vector3(0,80,0));
                 jumpCount--;

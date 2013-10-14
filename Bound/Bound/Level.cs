@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using BEPUphysics.MathExtensions;
 using Microsoft.Xna.Framework;
 
 namespace Bound
@@ -53,17 +54,30 @@ namespace Bound
                     platDecide[Game1.r.Next(0, 6)] = true;
                 }
 
+      
+
                 float xOffset = (float)((Game1.r.NextDouble()-1)*-2.5);
 
-                for (int i = 0; i < 6; i++)
+                if (j % 5 == 0)
                 {
-                    if (platDecide[i])
+                    PhysModel slidePlatform = new PhysModel(new Vector3(200, Game1.r.Next(350, 450) + heightVar * 110, 250 * j), new Vector3(120, 15, 250), 0, PhysModel.PhysType.WallRunPlatform, (PhysModel.ColorType)Game1.r.Next(0,5));
+                    var rotMat = Matrix.CreateRotationZ(MathHelper.PiOver2);
+                    slidePlatform.phys.OrientationMatrix = new Matrix3X3(rotMat.M11, rotMat.M12, rotMat.M13, rotMat.M21, rotMat.M22, rotMat.M23, rotMat.M31, rotMat.M32, rotMat.M33);
+                    PhysList.Add(slidePlatform);
+                }
+                else
+                {
+
+                    for (int i = 0; i < 6; i++)
                     {
-                        colorCount++;
-                        int colorIndex = (colorCount%4)+1;
-                        PhysModel physModel = new PhysModel(new Vector3(-250 + 120 * (i+xOffset), Game1.r.Next(-100, -40)+heightVar*110, -250 + 250 * j), new Vector3(70, 1000, 70), 0, (PhysModel.PhysType)colorIndex);
-                        physModel.modelOffset = Matrix.CreateTranslation(0, -8, 0);
-                        PhysList.Add(physModel);
+                        if (platDecide[i])
+                        {
+                            colorCount++;
+                            int colorIndex = (colorCount%4) + 1;
+                            PhysModel nextPlatform = new PhysModel(new Vector3(-250 + 120 * (i + xOffset), Game1.r.Next(-100, -40) + heightVar * 110, 250 * j), new Vector3(70, 1000, 70), 0, PhysModel.PhysType.ColumnPlatform, (PhysModel.ColorType)colorIndex);
+                            nextPlatform.modelOffset = Matrix.CreateTranslation(0, -8, 0);
+                            PhysList.Add(nextPlatform);
+                        }
                     }
                 }
             }
@@ -79,7 +93,7 @@ namespace Bound
         {
             foreach (var physModel in PhysList.ToList())
             {
-                if ((int)physModel.curType <= 4)
+                if (physModel.physType == PhysModel.PhysType.ColumnPlatform || physModel.physType == PhysModel.PhysType.WallRunPlatform)
                 {
                     Game1.space.Remove(physModel.phys);
                     PhysList.Remove(physModel);

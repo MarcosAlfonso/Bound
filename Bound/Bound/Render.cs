@@ -61,8 +61,9 @@ namespace Bound
 
             //Debugs
             debugDisplay.addDebug("Current Speed: " + (Level.player.runSpeed + Level.player.boostSpeed));
+            debugDisplay.addDebug("Current Linear  Velocity: " + (Level.player.physModel.phys.LinearVelocity));
             debugDisplay.addDebug("Current Position: " + Level.player.physModel.phys.Position);
-            debugDisplay.addDebug("Last Platform: " + Level.player.lastPlatform );
+            debugDisplay.addDebug("Last Platform: " + Level.player.lastColor );
             debugDisplay.addDebug("Combo: " + Level.player.combo);
             debugDisplay.addDebug("Score " + Level.player.platScore);
 

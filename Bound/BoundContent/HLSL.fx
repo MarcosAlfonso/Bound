@@ -59,10 +59,10 @@ PixelToFrame SimplestPixelShader(VertexToPixel PSIn)
 
 	float l;
 
-	if (PSIn.Position3D.y > 300)
+	if (PSIn.Position3D.y > 400)
 		l = saturate((PSIn.Depth - xFogStart) / (xFogEnd - xFogStart));
 	else
-		l = saturate((PSIn.Depth - xFogStart) / (xFogEnd - xFogStart) + (-PSIn.Position3D.y+300)/500);
+		l = saturate((PSIn.Depth - xFogStart) / (xFogEnd - xFogStart) + (-PSIn.Position3D.y+400)/900);
 
 
     PSIn.TexCoords.y--;
@@ -127,10 +127,10 @@ float3 interpolate(float3 origin, float3 destination, float startStep, float end
 	 
 	 float normalY = PSIn.Normal.y;     
 
-     float4 topColor = float4(0.15f, 0.3f, .5f, 1);    
+     float4 topColor = float4(0.1f, 0.2f, .4f, 1);    
      float4 bottomColor = float4(1.0f, 1.0f, 1.0f, 1);
 	     
-     Output.Color = lerp(bottomColor,topColor,saturate(((normalY-.1f)/.85))); 
+     Output.Color = lerp(bottomColor,topColor,saturate(((normalY-.1f)/.7))); 
  
      return Output;
  }

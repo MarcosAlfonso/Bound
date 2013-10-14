@@ -1,7 +1,10 @@
 ﻿Platforms:
 	Better level generation
+	Intro Platform?
 	Climbing portion? Move slowly but jump high?
 
+	Slide Platforms, not done
+		Perhaps have some leeway or magnet power for attaching, right now feels wrong. Also visual cue!
 
 Collectables:
 	Coins - Overlapping rotating cubes to make this model
@@ -9,22 +12,22 @@ Collectables:
 
 GUI:
 	Main Menu
-	Score
-	Speed
+	Non Debug HUD
 
 Utilities:
+	COMMENT stuff
 	Implement timed debug
 
 Rendering:
-	Big monoliths on each side
-	Clean up HLSL, extra paramaters and such with new fog stuff
-	Look at altitude fog stuff some more
-	Stars?
+	Hit Ground Effects?
+	Stars
+	Floating geometry?
 
+Audio:
+	Jump Sound?
+	Hit Prism Sound?
+	Music:
+		Chill trance slow to build
 
-
-
-Future:
-	Rainbow platforms?
-	Geometric columns in a trippy 3d space (like stars, and shit)? Hexagons or octagons
-	Getting rainbow colors in certain pattern or whatever maybe does something, maybe not
+Details:
+	Wacky Combo Names?

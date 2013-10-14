@@ -22,8 +22,8 @@ namespace Bound
         GraphicsDeviceManager graphics;
         public static SpriteBatch spriteBatch;
 
-        public const int ScreenW = 1920;
-        public const int ScreenH = 1080;
+        public const int ScreenW = 1024;
+        public const int ScreenH = 768;
 
         public static GraphicsDevice device;
 
@@ -58,7 +58,7 @@ namespace Bound
             graphics.PreferredBackBufferWidth = ScreenW;
             graphics.PreferredBackBufferHeight = ScreenH;
             graphics.PreferMultiSampling = true;
-            graphics.IsFullScreen = true;
+            graphics.IsFullScreen = false;
             graphics.ApplyChanges();
 
             //graphics stuff
