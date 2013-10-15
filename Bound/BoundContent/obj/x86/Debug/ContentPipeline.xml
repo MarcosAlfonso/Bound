@@ -8,10 +8,10 @@
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\Models\cubeModel.xnb</Output>
-      <Time>2013-09-25T00:59:10.5278-05:00</Time>
+      <Time>2013-10-13T19:05:15.6702-05:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\cubeModel_0.xml</Key>
-        <Value>2013-09-27T01:45:46.3454-05:00</Value>
+        <Value>2013-10-14T19:02:56.3166-05:00</Value>
       </Dependency>
       <Request>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\FBX\EA5A1FCB\cubeModel.fbm\cubeTexture_0.xnb</Request>
     </Item>
@@ -22,10 +22,10 @@
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\Models\cubeModel2.xnb</Output>
-      <Time>2013-09-25T01:05:59.7818-05:00</Time>
+      <Time>2013-10-13T19:05:15.6712-05:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\cubeModel2_0.xml</Key>
-        <Value>2013-09-27T01:45:47.5194-05:00</Value>
+        <Value>2013-10-14T19:02:57.5306-05:00</Value>
       </Dependency>
       <Request>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\FBX\9C01FFD\cubeModel2.fbm\cubeTexture_0.xnb</Request>
     </Item>
@@ -36,10 +36,10 @@
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\Models\ExtrudeCube.xnb</Output>
-      <Time>2013-09-19T13:49:34.6854-05:00</Time>
+      <Time>2013-10-13T19:05:15.6662-05:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\ExtrudeCube_0.xml</Key>
-        <Value>2013-09-27T01:45:47.9644-05:00</Value>
+        <Value>2013-10-14T19:02:57.9706-05:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -49,10 +49,10 @@
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\Models\gridCube.xnb</Output>
-      <Time>2013-09-25T01:12:27.6538-05:00</Time>
+      <Time>2013-10-13T19:05:15.6732-05:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\gridCube_0.xml</Key>
-        <Value>2013-09-27T01:45:48.0224-05:00</Value>
+        <Value>2013-10-14T19:02:58.0246-05:00</Value>
       </Dependency>
       <Request>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\FBX\CA671F60\gridCube.fbm\gridTexture_0.xnb</Request>
     </Item>
@@ -77,10 +77,10 @@
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\Models\testColumn.xnb</Output>
-      <Time>2013-09-21T21:17:07.5296-05:00</Time>
+      <Time>2013-10-13T19:05:15.6742-05:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\testColumn_0.xml</Key>
-        <Value>2013-09-27T01:45:48.9364-05:00</Value>
+        <Value>2013-10-14T19:02:58.9576-05:00</Value>
       </Dependency>
       <Request>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\FBX\CCD2069\testColumn.fbm\columnTexture_0.xnb</Request>
     </Item>
@@ -91,7 +91,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\Models\columnTexture.xnb</Output>
-      <Time>2013-09-21T21:08:12-05:00</Time>
+      <Time>2013-10-13T19:05:15.6672-05:00</Time>
     </Item>
     <Item>
       <Source>Models\cubeTexture.png</Source>
@@ -100,7 +100,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\Models\cubeTexture.xnb</Output>
-      <Time>2013-09-25T00:55:12.7168-05:00</Time>
+      <Time>2013-10-13T19:05:15.6722-05:00</Time>
     </Item>
     <Item>
       <Source>Models\gridTexture.png</Source>
@@ -109,7 +109,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\Models\gridTexture.xnb</Output>
-      <Time>2013-09-25T00:55:12-05:00</Time>
+      <Time>2013-10-13T19:05:15.6742-05:00</Time>
     </Item>
     <Item>
       <Source>Textures\streettexture.dds</Source>
@@ -118,7 +118,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\Textures\streettexture.xnb</Output>
-      <Time>2013-09-20T16:27:43.1252-05:00</Time>
+      <Time>2013-10-13T19:05:15.6952-05:00</Time>
     </Item>
     <Item>
       <Source>Textures\wedge_p1_diff_v1.tga</Source>
@@ -127,7 +127,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\Textures\wedge_p1_diff_v1.xnb</Output>
-      <Time>2007-12-09T17:15:44-06:00</Time>
+      <Time>2013-10-13T19:05:15.6982-05:00</Time>
     </Item>
     <Item>
       <Source>HLSL.fx</Source>
@@ -136,14 +136,14 @@
       <Processor>EffectProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\HLSL.xnb</Output>
-      <Time>2013-09-26T13:45:56.6244-05:00</Time>
+      <Time>2013-10-13T19:05:15.6472-05:00</Time>
     </Item>
     <Item>
       <Source>Models\cubeModel.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\cubeModel_0.xml</Output>
-      <Time>2013-09-25T00:59:10.5278-05:00</Time>
+      <Time>2013-10-13T19:05:15.6702-05:00</Time>
     </Item>
     <Item>
       <Source>obj\x86\Debug\FBX\EA5A1FCB\cubeModel.fbm\cubeTexture.png</Source>
@@ -159,14 +159,14 @@
       </Parameters>
       <Options>None</Options>
       <Output>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\FBX\EA5A1FCB\cubeModel.fbm\cubeTexture_0.xnb</Output>
-      <Time>2013-09-27T01:45:46.1684-05:00</Time>
+      <Time>2013-10-14T19:02:56.1316-05:00</Time>
     </Item>
     <Item>
       <Source>Models\cubeModel2.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\cubeModel2_0.xml</Output>
-      <Time>2013-09-25T01:05:59.7818-05:00</Time>
+      <Time>2013-10-13T19:05:15.6712-05:00</Time>
     </Item>
     <Item>
       <Source>obj\x86\Debug\FBX\9C01FFD\cubeModel2.fbm\cubeTexture.png</Source>
@@ -182,21 +182,21 @@
       </Parameters>
       <Options>None</Options>
       <Output>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\FBX\9C01FFD\cubeModel2.fbm\cubeTexture_0.xnb</Output>
-      <Time>2013-09-27T01:45:47.5124-05:00</Time>
+      <Time>2013-10-14T19:02:57.5176-05:00</Time>
     </Item>
     <Item>
       <Source>Models\ExtrudeCube.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\ExtrudeCube_0.xml</Output>
-      <Time>2013-09-19T13:49:34.6854-05:00</Time>
+      <Time>2013-10-13T19:05:15.6662-05:00</Time>
     </Item>
     <Item>
       <Source>Models\gridCube.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\gridCube_0.xml</Output>
-      <Time>2013-09-25T01:12:27.6538-05:00</Time>
+      <Time>2013-10-13T19:05:15.6732-05:00</Time>
     </Item>
     <Item>
       <Source>obj\x86\Debug\FBX\CA671F60\gridCube.fbm\gridTexture.png</Source>
@@ -212,7 +212,7 @@
       </Parameters>
       <Options>None</Options>
       <Output>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\FBX\CA671F60\gridCube.fbm\gridTexture_0.xnb</Output>
-      <Time>2013-09-27T01:45:48.0164-05:00</Time>
+      <Time>2013-10-14T19:02:58.0196-05:00</Time>
     </Item>
     <Item>
       <Source>Models\sphereModel.fbx</Source>
@@ -242,7 +242,7 @@
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\testColumn_0.xml</Output>
-      <Time>2013-09-21T21:17:07.5296-05:00</Time>
+      <Time>2013-10-13T19:05:15.6742-05:00</Time>
     </Item>
     <Item>
       <Source>obj\x86\Debug\FBX\CCD2069\testColumn.fbm\columnTexture.png</Source>
@@ -258,7 +258,7 @@
       </Parameters>
       <Options>None</Options>
       <Output>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\FBX\CCD2069\testColumn.fbm\columnTexture_0.xnb</Output>
-      <Time>2013-09-27T01:45:48.9274-05:00</Time>
+      <Time>2013-10-14T19:02:58.9486-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
