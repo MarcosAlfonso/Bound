@@ -7,11 +7,13 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Bound
 {
+    //Object for drawing a model
     class VisModel
     {
         public Model model;
         public Matrix worldMatrix;
 
+        //Constructor sets model to cube, and creates matrix
         public VisModel(Vector3 pos, Vector3 scale, Vector3 rot)
         {
             model = Render.cubeModel;

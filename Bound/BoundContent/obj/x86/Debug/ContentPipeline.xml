@@ -8,10 +8,10 @@
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\Models\cubeModel.xnb</Output>
-      <Time>2013-09-25T01:05:59.7818-05:00</Time>
+      <Time>2013-10-14T19:05:29.8586-05:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\cubeModel_0.xml</Key>
-        <Value>2013-09-27T18:39:16.6304-05:00</Value>
+        <Value>2013-10-14T19:06:57.3436-05:00</Value>
       </Dependency>
       <Request>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\FBX\EA5A1FCB\cubeModel.fbm\cubeTexture_0.xnb</Request>
     </Item>
@@ -36,14 +36,14 @@
       <Processor>EffectProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\HLSL.xnb</Output>
-      <Time>2013-10-02T01:23:08.5917-05:00</Time>
+      <Time>2013-10-14T19:05:29.7896-05:00</Time>
     </Item>
     <Item>
       <Source>Models\cubeModel.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\cubeModel_0.xml</Output>
-      <Time>2013-09-25T01:05:59.7818-05:00</Time>
+      <Time>2013-10-14T19:05:29.8586-05:00</Time>
     </Item>
     <Item>
       <Source>obj\x86\Debug\FBX\EA5A1FCB\cubeModel.fbm\cubeTexture.png</Source>
@@ -59,7 +59,7 @@
       </Parameters>
       <Options>None</Options>
       <Output>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\FBX\EA5A1FCB\cubeModel.fbm\cubeTexture_0.xnb</Output>
-      <Time>2013-09-27T18:39:16.4154-05:00</Time>
+      <Time>2013-10-14T19:06:57.2166-05:00</Time>
     </Item>
     <Item>
       <Source>Models\sphereModel.fbx</Source>
@@ -91,10 +91,10 @@
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\Models\platformModel.xnb</Output>
-      <Time>2013-09-28T15:01:33.1032-05:00</Time>
+      <Time>2013-10-14T19:05:29.8896-05:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\platformModel_0.xml</Key>
-        <Value>2013-09-28T15:04:49.8252-05:00</Value>
+        <Value>2013-10-14T19:06:58.2196-05:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -102,7 +102,7 @@
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\platformModel_0.xml</Output>
-      <Time>2013-09-28T15:01:33.1032-05:00</Time>
+      <Time>2013-10-14T19:05:29.8896-05:00</Time>
     </Item>
     <Item>
       <Source>Models\skyDome.x</Source>
@@ -111,10 +111,10 @@
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\Models\skyDome.xnb</Output>
-      <Time>2013-09-28T02:41:49.9164-05:00</Time>
+      <Time>2013-10-14T19:05:29.8996-05:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\skyDome_0.xml</Key>
-        <Value>2013-09-28T02:41:51.8314-05:00</Value>
+        <Value>2013-10-14T19:06:58.7486-05:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -122,7 +122,7 @@
       <Importer>XImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\skyDome_0.xml</Output>
-      <Time>2013-09-28T02:41:49.9164-05:00</Time>
+      <Time>2013-10-14T19:05:29.8996-05:00</Time>
     </Item>
     <Item>
       <Source>debugFont.spritefont</Source>
@@ -131,7 +131,7 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\debugFont.xnb</Output>
-      <Time>2013-10-01T21:11:40.5132-05:00</Time>
+      <Time>2013-10-14T19:05:29.9246-05:00</Time>
     </Item>
     <Item>
       <Source>Models\skyboxModel.fbx</Source>
@@ -140,10 +140,10 @@
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\Models\skyboxModel.xnb</Output>
-      <Time>2013-10-01T20:44:53.2712-05:00</Time>
+      <Time>2013-10-14T19:05:29.9046-05:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\skyboxModel_0.xml</Key>
-        <Value>2013-10-01T20:44:57.6272-05:00</Value>
+        <Value>2013-10-14T19:06:58.3056-05:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -151,7 +151,7 @@
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\skyboxModel_0.xml</Output>
-      <Time>2013-10-01T20:44:53.2712-05:00</Time>
+      <Time>2013-10-14T19:05:29.9046-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

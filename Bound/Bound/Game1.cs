@@ -22,8 +22,8 @@ namespace Bound
         GraphicsDeviceManager graphics;
         public static SpriteBatch spriteBatch;
 
-        public const int ScreenW = 1024;
-        public const int ScreenH = 768;
+        public const int ScreenW = 1280;
+        public const int ScreenH = 720;
 
         public static GraphicsDevice device;
 

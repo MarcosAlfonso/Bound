@@ -26,9 +26,9 @@ namespace Bound
         public static Model sphereModel;
         public static Model platformModel;
         public static Model skyDomeModel;
-
         public static SpriteFont debugFont;
 
+        //Debug
         public static DebugDisplay debugDisplay = new DebugDisplay(20, 20);
 
         public static void Initialize()
@@ -36,43 +36,41 @@ namespace Bound
             camera = new FreeCamera();
         }
 
-
         public static void Draw()
         {
-            Game1.device.BlendState = BlendState.Opaque;
-            Game1.device.DepthStencilState = DepthStencilState.Default;
+            //Clears screen
             Game1.device.Clear(ClearOptions.Target | ClearOptions.DepthBuffer, new Color(255,255,255), 1.0f, 0);
-            var rs = new RasterizerState();
-            rs.CullMode = CullMode.None;
-            //rs.FillMode = FillMode.WireFrame;
-            Game1.device.RasterizerState = rs;
 
             DrawSkyDome();
 
+            //Draws all the PhysModels
             foreach (PhysModel pm in Level.PhysList)
             {
                 pm.Draw();
             }
 
+            //Draws all the VisModels
             foreach (VisModel vm in Level.VisList)
             {
                 vm.Draw();
             }
 
-            //Debugs
-            debugDisplay.addDebug("Current Speed: " + (Level.player.runSpeed + Level.player.boostSpeed));
+            //Debug Strings
+            debugDisplay.addDebug("Current Speed: " + (Level.player.runSpeed + Level.player.accelSpeed));
             debugDisplay.addDebug("Current Linear  Velocity: " + (Level.player.physModel.phys.LinearVelocity));
             debugDisplay.addDebug("Current Position: " + Level.player.physModel.phys.Position);
             debugDisplay.addDebug("Last Platform: " + Level.player.lastColor );
             debugDisplay.addDebug("Combo: " + Level.player.combo);
             debugDisplay.addDebug("Score " + Level.player.platScore);
 
+            //Debug Drawing
             Game1.spriteBatch.Begin();
             debugDisplay.Draw();
             Game1.spriteBatch.End();
 
         }
 
+        //Draws Models
         public static void DrawModel(Model model, Matrix wMatrix, string technique, Vector3 tint)
         {
             Matrix[] modelTransforms = new Matrix[model.Bones.Count];
@@ -91,22 +89,12 @@ namespace Bound
                     currentEffect.Parameters["xLightPower"].SetValue(lightPower);
                     currentEffect.Parameters["xAmbient"].SetValue(ambientPower);
                     currentEffect.Parameters["xColor"].SetValue(tint);
-                    //float xFogStart;
                     currentEffect.Parameters["xFogStart"].SetValue(650);
-                    //float xFogEnd;
                     currentEffect.Parameters["xFogEnd"].SetValue(2000);
-                    //float3 xFogColor;
                     currentEffect.Parameters["xFogColor"].SetValue(new Vector3(1));
-
-                    //float4x4 World;
                     currentEffect.Parameters["xWorld"].SetValue(worldMatrix);
-
-                    //float4x4 View;
                     currentEffect.Parameters["xView"].SetValue(camera.viewMatrix);
-
                     currentEffect.Parameters["xProjection"].SetValue(camera.projectionMatrix);
-
-                    //float3 cameraPosition;
                     currentEffect.Parameters["cameraPosition"].SetValue(camera.Position);
 
                 }
@@ -114,6 +102,7 @@ namespace Bound
             }
         }
 
+        //Draws Sky Dome
         private static void DrawSkyDome()
         {
             Game1.device.DepthStencilState = DepthStencilState.DepthRead;
