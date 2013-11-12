@@ -2,7 +2,8 @@ float4x4 xWorldViewProjection;
 float4x4 xProjection;
 float4x4 xView;
 float4x4 xWorld;
-float3 xLightDir;
+float3 xLightDirDown;
+float3 xLightDirUp;
 float xLightPower;
 float xAmbient;
 float3 xColor;
@@ -53,9 +54,13 @@ PixelToFrame SimplestPixelShader(VertexToPixel PSIn)
 {
     PixelToFrame Output = (PixelToFrame)0;    
 
-    float diffuseLightingFactor = dot(xLightDir, PSIn.Normal);
-    diffuseLightingFactor = saturate(diffuseLightingFactor);
-    diffuseLightingFactor *= xLightPower;
+    float diffuseLightingFactorDown = dot(xLightDirDown, PSIn.Normal);
+    diffuseLightingFactorDown = saturate(diffuseLightingFactorDown);
+    diffuseLightingFactorDown *= xLightPower;
+
+	float diffuseLightingFactorUp = dot(xLightDirUp, PSIn.Normal);
+    diffuseLightingFactorUp = saturate(diffuseLightingFactorUp);
+    diffuseLightingFactorUp *= xLightPower;
 
 	float l;
 
@@ -66,7 +71,7 @@ PixelToFrame SimplestPixelShader(VertexToPixel PSIn)
 
 
     PSIn.TexCoords.y--;
-	float3 lightColor = xColor*(diffuseLightingFactor + xAmbient);
+	float3 lightColor = xColor*(diffuseLightingFactorDown + diffuseLightingFactorUp + xAmbient);
 	//float3 fogColor = lerp(xFogColor, float3(0.18f, 0.33f, .54f), PSIn.Position3D.y);
 	Output.Color = float4(lerp(lightColor,xFogColor, l),1);
 

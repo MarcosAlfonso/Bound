@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using BEPUphysics.Collidables;
 using BEPUphysics.Collidables.MobileCollidables;
+using BEPUphysics.CollisionTests;
 using BEPUphysics.Entities.Prefabs;
 using BEPUphysics.Materials;
 using BEPUphysics.NarrowPhaseSystems.Pairs;
@@ -25,6 +26,7 @@ namespace Bound
         public int jumpCount = 2;
         public float runSpeed = 120;
         public float accelSpeed;
+        public float accelRate = .01f;
 
         //Player States
         private Boolean isRunning;
@@ -52,33 +54,78 @@ namespace Bound
             physModel.phys.Material.KineticFriction = 0.0f;
             physModel.phys.Material.StaticFriction = 0.0f;
 
-            Level.PhysList.Add(physModel);
-
             //Collision Event Callback
             physModel.phys.CollisionInformation.Events.InitialCollisionDetected += HandleCollision;
+            physModel.phys.CollisionInformation.Events.ContactRemoved += EndCollision;
 
             //Sets Camera
             camera = Render.camera;
+        }
+
+        private void EndCollision(EntityCollidable sender, Collidable other, CollidablePairHandler pair, ContactData contact)
+        {
+            camera.runShake = false;
         }
 
         //Handles all sorts of stuff pertaining to collisions
         private void HandleCollision(EntityCollidable sender, Collidable other, CollidablePairHandler pair)
         {
             //Iterates through all PhysModels to find the one were colliding with
-            foreach (var physCollider in Level.PhysList)
+            foreach (var row in Level.RowList.ToList())
             {
-                //Found it!
-                if (physCollider.phys.CollisionInformation == other)
+                for (int i = 0; i < 6; i++)
                 {
+                    PhysModel physCollider = row.platArray[i];
 
-                    //Column Platform Physics
-                    if (physCollider.physType == PhysModel.PhysType.ColumnPlatform)
+                    //Found it!
+                    if (physCollider != null && physCollider.phys.CollisionInformation == other)
                     {
-                        //Checks if the collision vector was beneath the player sphere
-                        if (pair.Contacts[0].Contact.Normal.Y > .8f)
+                        //Re Enable Shake, we're running
+                        camera.runShake = true;
+
+                        camera.landShakeStart = (long)Game1.gameRunTime.TotalGameTime.TotalMilliseconds;
+
+
+                        //Column Platform Physics
+                        if (physCollider.physType == PhysModel.PhysType.ColumnPlatform)
                         {
-                            //Resets jump count
+                            //Checks if the collision vector was beneath the player sphere
+                            if (pair.Contacts[0].Contact.Normal.Y > .8f)
+                            {
+                                //Resets jump count
+                                jumpCount = 2;
+
+                                //Figures out combo
+                                if (lastColor == physCollider.curColor && lastColor != PhysModel.ColorType.Touched)
+                                    combo++;
+                                else
+                                    combo = 1;
+
+                                //Adds to overall score
+                                platScore += combo;
+
+                                //Tracks color for next combo
+                                lastColor = physCollider.curColor;
+
+                                //Sets platform to touched
+                                physCollider.curColor = PhysModel.ColorType.Touched;
+                            }
+                        }
+                            //Rail Platform Physics
+                        else if (physCollider.physType == PhysModel.PhysType.RailPlatform && (canSlide || currentSlide != physCollider))
+                        {
+                            //Slide Details
+                            canSlide = false;
                             jumpCount = 2;
+                            isSliding = true;
+                            currentSlide = physCollider;
+                            physModel.phys.IsAffectedByGravity = false;
+
+                            //Handles slide direction based off current velocity
+                            if (physModel.phys.LinearVelocity.Z > 0)
+                                slideVelocity = new Vector3(0, 0, runSpeed + accelSpeed);
+                            else
+                                slideVelocity = new Vector3(0, 0, -(runSpeed + accelSpeed));
 
                             //Figures out combo
                             if (lastColor == physCollider.curColor && lastColor != PhysModel.ColorType.Touched)
@@ -96,40 +143,23 @@ namespace Bound
                             physCollider.curColor = PhysModel.ColorType.Touched;
                         }
                     }
-                    //Rail Platform Physics
-                    else if (physCollider.physType == PhysModel.PhysType.RailPlatform && canSlide)
-                    {
-                        //Slide Details
-                        canSlide = false;
-                        jumpCount = 2;
-                        isSliding = true;
-                        currentSlide = physCollider;
-                        physModel.phys.IsAffectedByGravity = false;
-                        physCollider.curColor = PhysModel.ColorType.Touched;
-
-                        //Handles slide direction based off current velocity
-                        if (physModel.phys.LinearVelocity.Z > 0)
-                            slideVelocity = new Vector3(0, 0, runSpeed + accelSpeed);
-                        else
-                            slideVelocity = new Vector3(0, 0, -(runSpeed + accelSpeed));
-                    }
                 }
-            }
 
+            }
         }
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
             //Updates camera position to player phys with camera offset
             camera.Position = physModel.phys.Position + camOffset;
-            camera.UpdateViewMatrix();
+            camera.UpdateViewMatrix(gameTime);
 
             //NO ROLLING!
             physModel.phys.AngularVelocity = new Vector3();
 
             //If speed is accelerating, add to it
             if (isAccelerating)
-                accelSpeed += .03f;
+                accelSpeed += accelRate;
 
             //Running Logic
             if (isRunning)
@@ -140,9 +170,7 @@ namespace Bound
                     //Sets up rail slide movement 
                     physModel.phys.LinearVelocity = slideVelocity;
 
-                    //TODO
-                    //Hard coded check for end of slide FIX THIS
-                    if (physModel.phys.Position.Z > currentSlide.phys.Position.Z + 125 || physModel.phys.Position.Z < currentSlide.phys.Position.Z - 125)
+                    if (physModel.phys.Position.Z > currentSlide.phys.Position.Z + currentSlide.dimensions.Z / 2 || physModel.phys.Position.Z < currentSlide.phys.Position.Z - currentSlide.dimensions.Z / 2)
                     {
                         isSliding = false;
                         physModel.phys.IsAffectedByGravity = true;
@@ -205,7 +233,6 @@ namespace Bound
             Render.camera.leftrightRot -= Render.camera.rotationSpeed*xDifference*amt;
             Render.camera.updownRot -= Render.camera.rotationSpeed*yDifference*amt;
             Mouse.SetPosition(Game1.device.Viewport.Width/2, Game1.device.Viewport.Height/2);
-            camera.UpdateViewMatrix();
 
             //Click to jump, checks jump count
             if (curMs.LeftButton == ButtonState.Pressed && Input.lastMs.LeftButton == ButtonState.Released && jumpCount > 0)
@@ -215,6 +242,8 @@ namespace Bound
                 canSlide = true;
 
                 //Jump Details
+                camera.jumpShakeStart = (long)Game1.gameRunTime.TotalGameTime.TotalMilliseconds;
+
                 physModel.phys.IsAffectedByGravity = true;
                 physModel.phys.LinearVelocity = new Vector3(physModel.phys.LinearVelocity.X, 0, physModel.phys.LinearVelocity.Y);
                 physModel.phys.ApplyImpulse(new Vector3(0), new Vector3(0, 80, 0));
@@ -234,18 +263,25 @@ namespace Bound
         public void Kill()
         {
             //Moves model, stops model, resets player movement vars
-            physModel.phys.Position = Level.PhysList[2].phys.Position + new Vector3(0, 550, 0);
+            physModel.phys.Position = new Vector3(0, 500, -120);
+
             physModel.phys.LinearVelocity = new Vector3();
             isRunning = false;
+            jumpCount = 2;
             runSpeed = 120;
             isAccelerating = false;
             accelSpeed = 0.0f;
             platScore = 0;
 
             //Resets all the platforms colors
-            foreach (var plats in Level.PhysList)
+            foreach (var row in Level.RowList)
             {
-                plats.Reset();
+                for (int i = 0; i < 6; i++)
+                {
+                    var plat = row.platArray[i];
+                    if (plat != null)
+                        plat.Reset();
+                }
             }
         }
     }

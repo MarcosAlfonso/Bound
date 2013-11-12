@@ -64,8 +64,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\platformModel.fbx">
-      <Name>platformModel</Name>
+    <Compile Include="Models\columnModel.fbx">
+      <Name>columnModel</Name>
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
     </Compile>

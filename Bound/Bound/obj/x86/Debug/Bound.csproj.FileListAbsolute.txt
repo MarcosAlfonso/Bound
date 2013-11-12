@@ -11,7 +11,6 @@ C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\obj\x86\Debug\ResolveAssembly
 C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\obj\x86\Debug\Bound.exe
 C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\obj\x86\Debug\Bound.pdb
-C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\Models\platformModel.xnb
 C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\Models\skyDome.xnb
 C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\debugFont.xnb
 C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\Models\skyboxModel.xnb
@@ -19,3 +18,4 @@ C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Bound.exe.manif
 C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Bound.application
 C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\obj\x86\Debug\Bound.exe.manifest
 C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\obj\x86\Debug\Bound.application
+C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\Models\columnModel.xnb

@@ -3,7 +3,7 @@
   <Asset Type="Graphics:NodeContent">
     <Name>group</Name>
     <Identity>
-      <SourceFilename>C:\Users\Marcos\Documents\GitHub\Bound\Bound\BoundContent\Models\platformModel.fbx</SourceFilename>
+      <SourceFilename>C:\Users\Marcos\Documents\GitHub\Bound\Bound\BoundContent\Models\columnModel.fbx</SourceFilename>
       <SourceTool>FbxImporter</SourceTool>
     </Identity>
     <Transform>1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</Transform>
@@ -32,7 +32,7 @@
     <Resource ID="#Resource1" Type="Graphics:BasicMaterialContent">
       <Name>lambert2</Name>
       <Identity>
-        <SourceFilename>C:\Users\Marcos\Documents\GitHub\Bound\Bound\BoundContent\Models\platformModel.fbx</SourceFilename>
+        <SourceFilename>C:\Users\Marcos\Documents\GitHub\Bound\Bound\BoundContent\Models\columnModel.fbx</SourceFilename>
         <SourceTool>FbxImporter</SourceTool>
       </Identity>
       <OpaqueData>

@@ -33,6 +33,8 @@ namespace Bound
 
         public static Random r;
 
+        public static GameTime gameRunTime;
+
 
         public Game1()
         {
@@ -42,8 +44,6 @@ namespace Bound
 
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
-
             base.Initialize();
         }
 
@@ -58,7 +58,7 @@ namespace Bound
             graphics.PreferredBackBufferWidth = ScreenW;
             graphics.PreferredBackBufferHeight = ScreenH;
             graphics.PreferMultiSampling = true;
-            graphics.IsFullScreen = false;
+            graphics.IsFullScreen = true;
             graphics.ApplyChanges();
 
             //graphics stuff
@@ -71,7 +71,6 @@ namespace Bound
             //Load Shit
             Render.cubeModel = LoadModel(@"Models\cubeModel");
             Render.sphereModel = LoadModel(@"Models\sphereModel");
-            Render.platformModel = LoadModel(@"Models\platformModel");
             Render.skyDomeModel = LoadModel(@"Models\skyboxModel");
             Render.debugFont = Content.Load<SpriteFont>("debugFont");
 
@@ -88,18 +87,19 @@ namespace Bound
 
         protected override void UnloadContent()
         {
-            // TODO: Unload any non ContentManager content here
+
         }
 
         protected override void Update(GameTime gameTime)
         {
+            gameRunTime = gameTime;
             float timeDifference = (float)gameTime.ElapsedGameTime.TotalMilliseconds / 1000.0f;
 
             //If active window, do input
             if (IsActive)
                 Input.Update(timeDifference);
 
-            Level.player.Update();
+            Level.player.Update(gameTime);
             space.Update();
 
             base.Update(gameTime);

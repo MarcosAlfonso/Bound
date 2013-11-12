@@ -19,6 +19,7 @@ namespace Bound
     {
         public Entity phys; //Generic physics shape container
         public Model model;
+        public Vector3 dimensions;
 
         public Matrix scaleMatrix;
 
@@ -47,15 +48,18 @@ namespace Bound
         //Enum for physics types
         public enum PhysType
         {
-            ColumnPlatform = 0,
-            RailPlatform = 1,
-            Player = 2,
-            Collectable = 3,
+            StartPlatform = 0,
+            ColumnPlatform = 1,
+            RailPlatform = 2,
+            Player = 3,
+            Collectable = 4,
         }
 
         //PhysModel for Rectangular Prism
         public PhysModel(Vector3 pos, Vector3 dims, int mass, PhysType pType, ColorType cType)
         {
+            dimensions = dims;
+
             //Mass determines of static or dynamic
             if (mass == 0)
                 phys = new Box(pos, dims.X, dims.Y, dims.Z);
@@ -68,20 +72,16 @@ namespace Bound
 
             //Scales by dim, scale down by .03.... why?
             scaleMatrix = Matrix.CreateScale(dims*(1f/30f));
-            Game1.space.Add(phys);
 
-            //physType determines model
-            if ((int)physType <= 1)
-            {
-                model = Render.platformModel;
-            }
-            else
-                model = Render.cubeModel;
+            Game1.space.Add(phys);
+            model = Render.cubeModel;
         }
 
         //PhysModel for Spheres
         public PhysModel(Vector3 pos, float radius, int mass, PhysType pType, ColorType cType)
         {
+            dimensions = new Vector3(radius);
+
             //Mass determines whether static or dynamic
             if (mass == 0)
                 phys = new Sphere(pos, radius);
@@ -111,23 +111,13 @@ namespace Bound
             //If set to draw
             if (DrawModel)
             {
-                //TODO
-                //Gotta scale that RailPlatform specially till we get it it's OWN MODEL
-                if (physType == PhysType.RailPlatform)
-                {
-                    var skinnyMatrix = Matrix.CreateScale(1, .333f, 1);
-                    Render.DrawModel(model, skinnyMatrix * scaleMatrix*modelOffset*phys.WorldTransform, "Simplest", Level.platColors[(int) curColor%5]);
-                }
-                else
-                    Render.DrawModel(model, scaleMatrix * modelOffset * phys.WorldTransform, "Simplest", Level.platColors[(int)curColor % 5]);
-
+                Render.DrawModel(model, scaleMatrix * modelOffset * phys.WorldTransform, "Simplest", Level.platColors[(int)curColor % 5]);
             }
         }
 
-        //Removes both model and physics object
+        //Removes both physics object
         public void Remove()
         {
-            Level.PhysList.Remove(this);
             Game1.space.Remove(phys);
         }
     }

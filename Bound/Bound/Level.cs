@@ -10,8 +10,10 @@ namespace Bound
     internal static class Level
     {
         public static PlayerController player;
-        public static List<PhysModel> PhysList = new List<PhysModel>();
+        public static List<LevelRow> RowList = new List<LevelRow>();
         public static List<VisModel> VisList = new List<VisModel>();
+
+        public static int colorCount;
 
         public static Vector3[] platColors =
             {
@@ -34,86 +36,159 @@ namespace Bound
 
             //TODO
             //Moves player, this should move to a intro platform that is always the same
-            player = new PlayerController(PhysList[2].phys.Position + new Vector3(0, 550, 0));
+            player = new PlayerController(new Vector3(0, 500, -120));
         }
 
         public static void GenerateLevel()
         {
-            //Incrememnters for stuff
-            float heightDelta = 0;
-            int colorCount = 0;
+            //Incrememnters
+            colorCount = 0;
+
+            //Creates row
+            RowList.Add(new LevelRow(PhysModel.PhysType.StartPlatform));
 
             //How many rows of plats
-            for (int j = 0; j < 100; j++)
+            for (int j = 1; j < 100; j++)
             {
-                //Sets heights to a rolling sin wave overall shape
-                var heightVar = (float) Math.Sin(heightDelta);
-
-                //Delta change
-                heightDelta += .08f;
-
-                //Picks which platforms will spawn, weighted probabilities
-                bool[] platDecide = {Game1.r.Next(0, 6) < 3, Game1.r.Next(0, 5) < 3, Game1.r.Next(0, 4) < 3, Game1.r.Next(0, 4) < 3, Game1.r.Next(0, 5) < 31, Game1.r.Next(0, 6) < 3};
-
-                //If none are true, start over
-                if (!platDecide[0] && !platDecide[1] && !platDecide[2] && !platDecide[3] && !platDecide[4] && !platDecide[5])
+                //Every 5 platforms do a column platform
+                if (j % 10 < 5)
                 {
-                    platDecide[Game1.r.Next(0, 6)] = true;
+                    RowList.Add(new LevelRow(PhysModel.PhysType.ColumnPlatform));
                 }
-
-                //Random offset laterally
-                float xOffset = (float) ((Game1.r.NextDouble() - 1)*-2.5);
-
-                //Every 5 platforms do a SLIDE platform
-                if (j%10 >= 5)
-                {
-                    PhysModel slidePlatform = new PhysModel(new Vector3(250 + (-85 + 170*(float) Game1.r.NextDouble()), Game1.r.Next(350, 450) + heightVar*110, 250*j), new Vector3(15, 30, 250), 0, PhysModel.PhysType.RailPlatform, (PhysModel.ColorType) Game1.r.Next(0, 5));
-                    
-                    //TODO
-                    //Rotation cuz we're using a column model FIX THIS
-                    var rotMat = Matrix.CreateRotationZ(MathHelper.PiOver2);
-                    slidePlatform.phys.OrientationMatrix = new Matrix3X3(rotMat.M11, rotMat.M12, rotMat.M13, rotMat.M21, rotMat.M22, rotMat.M23, rotMat.M31, rotMat.M32, rotMat.M33);
-                    
-                    PhysList.Add(slidePlatform);
-                }
-
-                //and then other 5 plaftorms make COLUMN plaftorm
                 else
                 {
-                    for (int i = 0; i < 6; i++)
-                    {
-                        if (platDecide[i])
-                        {
-                            colorCount++;
-                            int colorIndex = (colorCount%4) + 1;
-                            PhysModel nextPlatform = new PhysModel(new Vector3(-250 + 120*(i + xOffset), Game1.r.Next(-100, -40) + heightVar*110, 250*j), new Vector3(70, 1000, 70), 0, PhysModel.PhysType.ColumnPlatform, (PhysModel.ColorType) colorIndex);
-                            nextPlatform.modelOffset = Matrix.CreateTranslation(0, -8, 0);
-                            PhysList.Add(nextPlatform);
-                        }
-                    }
+                    RowList.Add(new LevelRow(PhysModel.PhysType.RailPlatform));
                 }
             }
 
             //Adds large black cubes on left and right for visual communication
-            for (int i = 0; i < 12; i++)
+            for (int i = 0; i < 20; i++)
             {
-                VisList.Add(new VisModel(new Vector3(1200, 200, 250 + i*1200), new Vector3(Game1.r.Next(10, 30)), new Vector3((float) Game1.r.NextDouble()*MathHelper.TwoPi, (float) Game1.r.NextDouble()*MathHelper.TwoPi, (float) Game1.r.NextDouble()*MathHelper.TwoPi)));
-                VisList.Add(new VisModel(new Vector3(-1200, 200, 250 + i*1200), new Vector3(Game1.r.Next(10, 30)), new Vector3((float) Game1.r.NextDouble()*MathHelper.TwoPi, (float) Game1.r.NextDouble()*MathHelper.TwoPi, (float) Game1.r.NextDouble()*MathHelper.TwoPi)));
+                VisList.Add(new VisModel(new Vector3(1200, 200, 250 + i*1200), new Vector3(Game1.r.Next(10, 24)), new Vector3((float) Game1.r.NextDouble()*MathHelper.TwoPi, (float) Game1.r.NextDouble()*MathHelper.TwoPi, (float) Game1.r.NextDouble()*MathHelper.TwoPi)));
+                VisList.Add(new VisModel(new Vector3(-1200, 200, 250 + i*1200), new Vector3(Game1.r.Next(10, 24)), new Vector3((float) Game1.r.NextDouble()*MathHelper.TwoPi, (float) Game1.r.NextDouble()*MathHelper.TwoPi, (float) Game1.r.NextDouble()*MathHelper.TwoPi)));
             }
         }
 
         //Clears a level of models
         public static void ClearLevel()
         {
-            foreach (var physModel in PhysList.ToList())
+            foreach (var row in RowList.ToList())
             {
-                if (physModel.physType == PhysModel.PhysType.ColumnPlatform || physModel.physType == PhysModel.PhysType.RailPlatform)
-                {
-                    Game1.space.Remove(physModel.phys);
-                    PhysList.Remove(physModel);
-                }
+                row.DeletePhys();
             }
+            RowList.Clear();
             VisList.Clear();
         }
     }
+
+    public class LevelRow
+    {
+        
+        public PhysModel[] platArray = new PhysModel[6];
+        public PhysModel.PhysType Type;
+        public int Count;
+
+        //Random offset laterally
+        private float xOffset = (float) ((Game1.r.NextDouble() - .5f)*-2.5);
+
+        public LevelRow(PhysModel.PhysType rowType)
+        {
+            //Row count in level
+            Count = Level.RowList.Count;
+
+            //Platform type this row hold
+            Type = rowType;
+
+            //Randomization for platform placements, weighted towards center
+            bool[] platDecide = {Game1.r.Next(0, 6) < 3, Game1.r.Next(0, 5) < 3, Game1.r.Next(0, 4) < 3, Game1.r.Next(0, 4) < 3, Game1.r.Next(0, 5) < 31, Game1.r.Next(0, 6) < 3};
+            //If none are true, make one true
+            if (!platDecide[0] && !platDecide[1] && !platDecide[2] && !platDecide[3] && !platDecide[4] && !platDecide[5])
+            {
+                platDecide[Game1.r.Next(0, 6)] = true;
+            }
+
+            //if row Type is Column
+            switch (Type)
+            {
+                case PhysModel.PhysType.ColumnPlatform:
+                    for (int i = 0; i < 6; i++)
+                    {
+                        if (platDecide[i])
+                        {
+                            Level.colorCount++;
+                            int colorIndex = (Level.colorCount%4) + 1;
+                            PhysModel nextPlatform = new PhysModel(new Vector3(-250 + 120*(i + xOffset), Game1.r.Next(-100, -40), 250*Count), new Vector3(70, 1000, 70), 0, PhysModel.PhysType.ColumnPlatform, (PhysModel.ColorType) colorIndex);
+                            nextPlatform.modelOffset = Matrix.CreateTranslation(0, -8, 0);
+
+                            platArray[i] = nextPlatform;
+                        }
+                    }
+                    break;
+                case PhysModel.PhysType.RailPlatform:
+                    for (int i = 0; i < 6; i++)
+                    {
+                        if (platDecide[i])
+                        {
+                            Level.colorCount++;
+                            int colorIndex = (Level.colorCount%4) + 1;
+
+                            PhysModel slidePlatform = new PhysModel(new Vector3(-250 + 120*(i + xOffset), Game1.r.Next(350, 450), 250*Count), new Vector3(20, 20, 250), 0, PhysModel.PhysType.RailPlatform, (PhysModel.ColorType) colorIndex);
+                            slidePlatform.scaleMatrix *= Matrix.CreateScale(.5f, .5f, 1);
+                            slidePlatform.modelOffset = Matrix.CreateTranslation(0, 2, 0);
+
+                            platArray[i] = slidePlatform;
+                        }
+                    }
+                    break;
+                case PhysModel.PhysType.StartPlatform:
+                    Level.colorCount = (Game1.r.Next(0, 5) + 1);
+                    PhysModel starterPlaftorm = new PhysModel(new Vector3(0, Game1.r.Next(-100, -40), 250 * Count), new Vector3(70, 1000, 300), 0, PhysModel.PhysType.StartPlatform, PhysModel.ColorType.Touched);
+                    starterPlaftorm.modelOffset = Matrix.CreateTranslation(0, -8, 0);
+                    platArray[3] = starterPlaftorm;
+                    break;
+            }
+
+            //Random Blocking Columns
+            if (Game1.r.Next(0,3) == 2 && Count != 0)
+            {
+                int i = Game1.r.Next(0,6);
+                Level.colorCount++;
+                int colorIndex = (Level.colorCount % 4) + 1;
+                PhysModel nextPlatform = new PhysModel(new Vector3(-250 + 120 * (i + xOffset), Game1.r.Next(100, 200), 250 * Count), new Vector3(90, 1000, 90), 0, PhysModel.PhysType.ColumnPlatform, (PhysModel.ColorType)colorIndex);
+                nextPlatform.modelOffset = Matrix.CreateTranslation(0, -8, 0);
+
+                if (platArray[i] != null)
+                    platArray[i].Remove();
+
+                platArray[i] = nextPlatform;
+            }
+
+
+        }
+
+        //Removes all the physModels in an array from space
+        public void DeletePhys()
+        {
+            for (int i = 0; i < 6; i++)
+            {
+                var physModel = platArray[i];
+                if (physModel != null)
+                    Game1.space.Remove(physModel.phys);
+            }
+        }
+
+        //Drawing Function
+        public void Draw()
+        {
+            for (int i = 0; i < 6; i++)
+            {
+                var physModel = platArray[i];
+                if (physModel != null)
+                    physModel.Draw();
+            }
+        }
+    }
 }
+
+
+

@@ -13,7 +13,8 @@ namespace Bound
         public static Effect effect;
 
         //Lighting
-        public static Vector3 lightDir = Vector3.Normalize(new Vector3(0, 1, 0));
+        public static Vector3 lightDirDown = Vector3.Normalize(new Vector3(0, 1, 0));
+        public static Vector3 lightDirUp = Vector3.Normalize(new Vector3(0, -1, 0));
         private static float lightPower = 0.7f;
         private static float ambientPower = 0.7f;
         public static Vector3 tint = new Vector3(255, 1.0f, 1.0f);
@@ -24,7 +25,7 @@ namespace Bound
         //Content
         public static Model cubeModel;
         public static Model sphereModel;
-        public static Model platformModel;
+        public static Model columnModel;
         public static Model skyDomeModel;
         public static SpriteFont debugFont;
 
@@ -44,9 +45,9 @@ namespace Bound
             DrawSkyDome();
 
             //Draws all the PhysModels
-            foreach (PhysModel pm in Level.PhysList)
+            foreach (var row in Level.RowList)
             {
-                pm.Draw();
+                row.Draw();
             }
 
             //Draws all the VisModels
@@ -85,7 +86,8 @@ namespace Bound
                     currentEffect.Parameters["xWorldViewProjection"].SetValue(worldMatrix*camera.viewMatrix*camera.projectionMatrix);
                     //currentEffect.Parameters["xTexture"].SetValue(textures[i++]);
                     currentEffect.Parameters["xWorld"].SetValue(worldMatrix);
-                    currentEffect.Parameters["xLightDir"].SetValue(lightDir);
+                    currentEffect.Parameters["xLightDirUp"].SetValue(lightDirUp);
+                    currentEffect.Parameters["xLightDirDown"].SetValue(lightDirDown);
                     currentEffect.Parameters["xLightPower"].SetValue(lightPower);
                     currentEffect.Parameters["xAmbient"].SetValue(ambientPower);
                     currentEffect.Parameters["xColor"].SetValue(tint);
