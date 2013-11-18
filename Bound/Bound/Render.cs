@@ -28,6 +28,7 @@ namespace Bound
         public static Model columnModel;
         public static Model skyDomeModel;
         public static SpriteFont debugFont;
+        public static SpriteFont scoreFont;
 
         //Debug
         public static DebugDisplay debugDisplay = new DebugDisplay(20, 20);
@@ -57,15 +58,23 @@ namespace Bound
             }
 
             //Debug Strings
+            /*
             debugDisplay.addDebug("Current Speed: " + (Level.player.runSpeed + Level.player.accelSpeed));
             debugDisplay.addDebug("Current Linear  Velocity: " + (Level.player.physModel.phys.LinearVelocity));
             debugDisplay.addDebug("Current Position: " + Level.player.physModel.phys.Position);
             debugDisplay.addDebug("Last Platform: " + Level.player.lastColor );
-            debugDisplay.addDebug("Combo: " + Level.player.combo);
-            debugDisplay.addDebug("Score " + Level.player.platScore);
+            debugDisplay.addDebug("Shake Scale: " + Level.player.camera.shakeScale);
+             */
+
+            //Gui stuff
+            
+            
 
             //Debug Drawing
             Game1.spriteBatch.Begin();
+            DrawAlignedString(scoreFont, "Record: " +Level.player.highscore.ToString(), new Rectangle(Game1.ScreenW-156,0,128,64), Alignment.Right, Color.Black);
+            DrawAlignedString(scoreFont, "Score: " +Level.player.platScore.ToString(), new Rectangle(Game1.ScreenW-156,46,128,64), Alignment.Right, Color.Black);
+            DrawAlignedString(scoreFont, "Combo: " + Level.player.combo.ToString(), new Rectangle(Game1.ScreenW-156,92,128,64), Alignment.Right, Color.Black);
             debugDisplay.Draw();
             Game1.spriteBatch.End();
 
@@ -84,7 +93,6 @@ namespace Bound
                     Matrix worldMatrix = modelTransforms[mesh.ParentBone.Index]*wMatrix;
                     currentEffect.CurrentTechnique = currentEffect.Techniques[technique];
                     currentEffect.Parameters["xWorldViewProjection"].SetValue(worldMatrix*camera.viewMatrix*camera.projectionMatrix);
-                    //currentEffect.Parameters["xTexture"].SetValue(textures[i++]);
                     currentEffect.Parameters["xWorld"].SetValue(worldMatrix);
                     currentEffect.Parameters["xLightDirUp"].SetValue(lightDirUp);
                     currentEffect.Parameters["xLightDirDown"].SetValue(lightDirDown);
@@ -126,6 +134,31 @@ namespace Bound
             }
             Game1.device.DepthStencilState = DepthStencilState.Default;
 
+        }
+
+
+        //Aligned Text
+        public enum Alignment { Center = 0, Left = 1, Right = 2, Top = 4, Bottom = 8 }
+
+        public static void DrawAlignedString(SpriteFont font, string text, Rectangle bounds, Alignment align, Color color)
+        {
+            Vector2 size = font.MeasureString(text);
+            Vector2 pos = new Vector2(bounds.Center.X,bounds.Center.Y);
+            Vector2 origin = size * 0.5f;
+
+            if (align.HasFlag(Alignment.Left))
+                origin.X += bounds.Width / 2 - size.X / 2;
+
+            if (align.HasFlag(Alignment.Right))
+                origin.X -= bounds.Width / 2 - size.X / 2;
+
+            if (align.HasFlag(Alignment.Top))
+                origin.Y += bounds.Height / 2 - size.Y / 2;
+
+            if (align.HasFlag(Alignment.Bottom))
+                origin.Y -= bounds.Height / 2 - size.Y / 2;
+
+            Game1.spriteBatch.DrawString(font, text, pos, color, 0, origin, 1, SpriteEffects.None, 0);
         }
     }
 }

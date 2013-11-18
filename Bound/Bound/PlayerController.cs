@@ -19,7 +19,7 @@ namespace Bound
         public PhysModel physModel;
 
         //Camera
-        private FreeCamera camera;
+        public FreeCamera camera;
         private Vector3 camOffset = new Vector3(0, 4, 0);
 
         //Player Vars
@@ -42,6 +42,7 @@ namespace Bound
         public PhysModel.ColorType lastColor = PhysModel.ColorType.Touched;
         public int platScore;
         public int combo;
+        public int highscore;
 
         //Constructor
         public PlayerController(Vector3 pos)
@@ -102,7 +103,8 @@ namespace Bound
                                     combo = 1;
 
                                 //Adds to overall score
-                                platScore += combo;
+                                if (physCollider.curColor != PhysModel.ColorType.Touched)
+                                    platScore += combo;
 
                                 //Tracks color for next combo
                                 lastColor = physCollider.curColor;
@@ -134,7 +136,8 @@ namespace Bound
                                 combo = 1;
 
                             //Adds to overall score
-                            platScore += combo;
+                            if (physCollider.curColor != PhysModel.ColorType.Touched)
+                                platScore += combo;
 
                             //Tracks color for next combo
                             lastColor = physCollider.curColor;
@@ -156,6 +159,9 @@ namespace Bound
 
             //NO ROLLING!
             physModel.phys.AngularVelocity = new Vector3();
+
+            if (platScore > highscore)
+                highscore = platScore;
 
             //If speed is accelerating, add to it
             if (isAccelerating)
@@ -183,8 +189,13 @@ namespace Bound
                 }
             }
 
-            //If you fall below 200, you DIE
-            if (physModel.phys.Position.Y < 200)
+            if (physModel.phys.Position.Y < 350)
+            {
+                camera.fallShake = true;
+                camera.shakeScale = 8-((Math.Abs(-200 - physModel.phys.Position.Y))/550f*8);
+            }
+            //If you fall below -100, you DIE
+            if (physModel.phys.Position.Y < -200)
                 Kill();
         }
 
@@ -246,7 +257,7 @@ namespace Bound
 
                 physModel.phys.IsAffectedByGravity = true;
                 physModel.phys.LinearVelocity = new Vector3(physModel.phys.LinearVelocity.X, 0, physModel.phys.LinearVelocity.Y);
-                physModel.phys.ApplyImpulse(new Vector3(0), new Vector3(0, 80, 0));
+                physModel.phys.ApplyImpulse(new Vector3(0), new Vector3(0, 85, 0));
                 jumpCount--;
             }
 
@@ -272,6 +283,8 @@ namespace Bound
             isAccelerating = false;
             accelSpeed = 0.0f;
             platScore = 0;
+            combo = 1;
+            camera.shakeScale = 0;
 
             //Resets all the platforms colors
             foreach (var row in Level.RowList)

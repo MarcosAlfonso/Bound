@@ -12,10 +12,11 @@ C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\obj\x86\Debug\Microsoft.Xna.F
 C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\obj\x86\Debug\Bound.exe
 C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\obj\x86\Debug\Bound.pdb
 C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\Models\skyDome.xnb
-C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\debugFont.xnb
 C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\Models\skyboxModel.xnb
 C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Bound.exe.manifest
 C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Bound.application
 C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\obj\x86\Debug\Bound.exe.manifest
 C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\obj\x86\Debug\Bound.application
 C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\Models\columnModel.xnb
+C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\Score.xnb
+C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\debug.xnb

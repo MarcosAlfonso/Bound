@@ -25,8 +25,12 @@ namespace Bound
 
         //Shake
         public bool runShake;
+        public bool fallShake;
+        public float shakeScale;
         public long landShakeStart; 
-        public long jumpShakeStart; 
+        public long jumpShakeStart;
+        public float shakeLeftRight;
+        public float shakeUpDown;
 
         public FreeCamera()
         {
@@ -36,22 +40,23 @@ namespace Bound
 
         public void UpdateViewMatrix(GameTime gameTime)
         {
-
-            float shakeLeftRight = leftrightRot;
-            float shakeUpDown = updownRot;
-
             if (runShake)
             {
-                shakeLeftRight += (float) Math.Sin(gameTime.TotalGameTime.TotalMilliseconds*.006f)/50f;
-                shakeUpDown += (float) Math.Sin(gameTime.TotalGameTime.TotalMilliseconds*.012f)/60f; 
+                shakeLeftRight = (float) Math.Sin(gameTime.TotalGameTime.TotalMilliseconds*.006f)/50f;
+                shakeUpDown = (float)Math.Sin(gameTime.TotalGameTime.TotalMilliseconds * .012f) / 60f; 
+            }
+            else if (fallShake)
+            {
+                shakeLeftRight = (float)Math.Sin(gameTime.TotalGameTime.TotalMilliseconds * .006f*(1 + shakeScale/16f)) / 50f * shakeScale;
+                shakeUpDown = (float)Math.Sin(gameTime.TotalGameTime.TotalMilliseconds * .012f*(1 + shakeScale/64f)) / 60f * shakeScale; 
             }
 
             if (gameTime.TotalGameTime.TotalMilliseconds - landShakeStart < 270)
             {
-                shakeUpDown -= (float) Math.Sin(Math.PI*(gameTime.TotalGameTime.TotalMilliseconds - landShakeStart)/270f)/10f;
+                shakeUpDown = (float) Math.Sin(Math.PI*(gameTime.TotalGameTime.TotalMilliseconds - landShakeStart)/270f)/10f;
             }
 
-            Matrix cameraRotation = Matrix.CreateRotationX(shakeUpDown) * Matrix.CreateRotationY(shakeLeftRight);
+            Matrix cameraRotation = Matrix.CreateRotationX(updownRot + shakeUpDown) * Matrix.CreateRotationY(leftrightRot + shakeLeftRight);
 
 
             Vector3 cameraOriginalTarget = new Vector3(0, 0, -1);

@@ -105,18 +105,18 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Bound.exe" size="26112">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Bound.exe" size="27136">
       <assemblyIdentity name="Bound" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>Uxc9MHyXFR+vOkgzaYRn5xVPlC0=</dsig:DigestValue>
+        <dsig:DigestValue>1+wa1KNDYVqV6w+7dMkHIB44BFc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="Content\debugFont.xnb" size="21166">
+  <file name="Content\debug.xnb" size="21166">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -197,6 +197,15 @@
       <dsig:DigestValue>nvoyOcQQqM4UajofchFegrP8SDU=</dsig:DigestValue>
     </hash>
   </file>
+  <file name="Content\Score.xnb" size="130222">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>NcTDmNXYabsUa9u8GayxdSyzA6U=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="Game.ico" size="4286">
     <hash>
       <dsig:Transforms>
@@ -215,13 +224,13 @@
       <dsig:DigestValue>diNvdcDpDtGEMuMQIHpkKK3qVHc=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="ToDo.txt" size="392">
+  <file name="ToDo.txt" size="391">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>rUSm2nw02kDH1KV5GswymRuSiro=</dsig:DigestValue>
+      <dsig:DigestValue>0v6v2ifeJjhuxMBMuzV2TZe/aYo=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

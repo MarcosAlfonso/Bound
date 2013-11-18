@@ -2,40 +2,24 @@
   <RecentFiles>
     <RecentFiles>
       <File id="005D7935-F388-4D09-BC46-F58F5C02C316/d:Models/f:skyDome.x" caret="76" fromTop="2" />
-      <File id="005D7935-F388-4D09-BC46-F58F5C02C316/f:debugFont.spritefont" caret="684" fromTop="19" />
+      <File id="005D7935-F388-4D09-BC46-F58F5C02C316/f:debug.spritefont" caret="684" fromTop="19" />
       <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/d:Util/f:DebugDisplay.cs" caret="713" fromTop="19" />
       <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:Program.cs" caret="0" fromTop="0" />
       <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:VisModel.cs" caret="637" fromTop="21" />
       <File id="005D7935-F388-4D09-BC46-F58F5C02C316/f:HLSL.fx" caret="2225" fromTop="12" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:Level.cs" caret="6244" fromTop="14" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:Render.cs" caret="3020" fromTop="0" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:PhysModel.cs" caret="2988" fromTop="40" />
+      <File id="005D7935-F388-4D09-BC46-F58F5C02C316/f:score.spritefont" caret="678" fromTop="1" />
       <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:FreeCamera.cs" caret="1360" fromTop="12" />
-      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:ToDo.txt" caret="126" fromTop="2" />
-      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:Render.cs" caret="4939" fromTop="30" />
-      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:PhysModel.cs" caret="2519" fromTop="0" />
-      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:Game1.cs" caret="1740" fromTop="0" />
-      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:PlayerController.cs" caret="11256" fromTop="39" />
       <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:Input.cs" caret="420" fromTop="17" />
-      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:Level.cs" caret="6244" fromTop="26" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:Game1.cs" caret="754" fromTop="25" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:PlayerController.cs" caret="3803" fromTop="18" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:ToDo.txt" caret="225" fromTop="9" />
     </RecentFiles>
     <RecentEdits>
-      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:Level.cs" caret="1995" fromTop="22" />
-      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:ToDo.txt" caret="316" fromTop="17" />
-      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:FreeCamera.cs" caret="2164" fromTop="24" />
-      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:FreeCamera.cs" caret="255" fromTop="12" />
-      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:FreeCamera.cs" caret="518" fromTop="16" />
-      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:PlayerController.cs" caret="6043" fromTop="13" />
-      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:PlayerController.cs" caret="6242" fromTop="17" />
-      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:PlayerController.cs" caret="9451" fromTop="16" />
-      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:Game1.cs" caret="3070" fromTop="17" />
-      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:PlayerController.cs" caret="2004" fromTop="23" />
-      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:PlayerController.cs" caret="2266" fromTop="10" />
-      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:FreeCamera.cs" caret="1020" fromTop="17" />
-      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:Game1.cs" caret="969" fromTop="27" />
-      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:Game1.cs" caret="2811" fromTop="23" />
-      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:PlayerController.cs" caret="3066" fromTop="23" />
-      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:Game1.cs" caret="1701" fromTop="10" />
-      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:FreeCamera.cs" caret="1500" fromTop="15" />
       <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:FreeCamera.cs" caret="738" fromTop="28" />
-      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:PlayerController.cs" caret="9818" fromTop="6" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:PlayerController.cs" caret="10004" fromTop="6" />
       <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:FreeCamera.cs" caret="1625" fromTop="22" />
       <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:FreeCamera.cs" caret="1625" fromTop="18" />
       <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:FreeCamera.cs" caret="1360" fromTop="12" />
@@ -47,6 +31,23 @@
       <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:ToDo.txt" caret="307" fromTop="17" />
       <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:ToDo.txt" caret="227" fromTop="9" />
       <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:ToDo.txt" caret="126" fromTop="2" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:PlayerController.cs" caret="10335" fromTop="23" />
+      <File id="005D7935-F388-4D09-BC46-F58F5C02C316/f:score.spritefont" caret="529" fromTop="13" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:Render.cs" caret="977" fromTop="30" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:Game1.cs" caret="2307" fromTop="36" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:Render.cs" caret="1747" fromTop="15" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:Render.cs" caret="2342" fromTop="25" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:Render.cs" caret="6230" fromTop="18" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:Render.cs" caret="6010" fromTop="12" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:Render.cs" caret="6753" fromTop="30" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:Game1.cs" caret="754" fromTop="25" />
+      <File id="005D7935-F388-4D09-BC46-F58F5C02C316/f:score.spritefont" caret="678" fromTop="16" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:Render.cs" caret="3556" fromTop="36" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:Render.cs" caret="5880" fromTop="25" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:Render.cs" caret="2502" fromTop="18" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:PlayerController.cs" caret="11104" fromTop="13" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:PlayerController.cs" caret="5800" fromTop="20" />
+      <File id="E7D21FD5-49B4-415B-B244-334CD8F14ACC/f:PlayerController.cs" caret="4045" fromTop="24" />
     </RecentEdits>
   </RecentFiles>
   <NAntValidationSettings>
@@ -70,18 +71,18 @@
   </SettingsComponent>
   <CompletionStatisticsManager>
     <ItemStatistics item="CSharpCodeCompletionContext">
-      <Item value="if" priority="895" />
+      <Item value="if" priority="927" />
       <Item value="other" priority="127" />
       <Item value="as" priority="31" />
       <Item value="PhysModel`0" priority="512" />
       <Item value="physModel" priority="1179" />
-      <Item value="new" priority="927" />
+      <Item value="new" priority="991" />
       <Item value="Vector3" priority="463" />
       <Item value="j" priority="159" />
       <Item value="isRunning" priority="127" />
       <Item value="false" priority="191" />
       <Item value="for" priority="255" />
-      <Item value="Game1`0" priority="897" />
+      <Item value="Game1`0" priority="993" />
       <Item value="sender" priority="31" />
       <Item value="ground" priority="31" />
       <Item value="public" priority="1437" />
@@ -120,8 +121,8 @@
       <Item value="Render`0" priority="191" />
       <Item value="LoadContent`0" priority="31" />
       <Item value="Content" priority="31" />
-      <Item value="Vector2" priority="28" />
-      <Item value="Color`0" priority="63" />
+      <Item value="Vector2" priority="86" />
+      <Item value="Color`0" priority="95" />
       <Item value="DebugDisplay" priority="28" />
       <Item value="debugDisplay" priority="95" />
       <Item value="List&lt;string&gt;" priority="28" />
@@ -134,7 +135,7 @@
       <Item value="else" priority="351" />
       <Item value="Console`0" priority="63" />
       <Item value="Kill`0" priority="95" />
-      <Item value="Level`0" priority="672" />
+      <Item value="Level`0" priority="736" />
       <Item value="GenerateLevel`0" priority="31" />
       <Item value="PhysList" priority="159" />
       <Item value="foreach" priority="63" />
@@ -168,7 +169,7 @@
       <Item value="lastPlatform" priority="95" />
       <Item value="namespace" priority="30" />
       <Item value="PlatformTouched" priority="33" />
-      <Item value="combo" priority="95" />
+      <Item value="combo" priority="127" />
       <Item value="platScore" priority="63" />
       <Item value="Type`0" priority="31" />
       <Item value="curType" priority="31" />
@@ -193,7 +194,7 @@
       <Item value="m12" priority="31" />
       <Item value="m13" priority="31" />
       <Item value="currentSlide" priority="255" />
-      <Item value="physCollider" priority="160" />
+      <Item value="physCollider" priority="192" />
       <Item value="ColorType`0" priority="63" />
       <Item value="physType" priority="95" />
       <Item value="cType" priority="31" />
@@ -239,6 +240,13 @@
       <Item value="landShakeStart" priority="31" />
       <Item value="shakeUpDown" priority="31" />
       <Item value="gameRunTime" priority="31" />
+      <Item value="scoreFont" priority="63" />
+      <Item value="Draw`0" priority="31" />
+      <Item value="bounds" priority="63" />
+      <Item value="DrawAlignedString`0" priority="31" />
+      <Item value="Rectangle" priority="29" />
+      <Item value="Alignment`0" priority="31" />
+      <Item value="Touched" priority="16" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:ToBeDetermined.PhysModel">
       <Item value="phys" priority="458" />
@@ -251,7 +259,7 @@
       <Item value="setBaseColor`0" priority="27" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:BEPUphysics.Entities.Entity">
-      <Item value="Position" priority="269" />
+      <Item value="Position" priority="296" />
       <Item value="LinearDamping" priority="27" />
       <Item value="CollisionInformation" priority="161" />
       <Item value="Tag" priority="53" />
@@ -335,12 +343,12 @@
       <Item value="Load`1" priority="26" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Microsoft.Xna.Framework.Graphics.SpriteBatch">
-      <Item value="DrawString`0" priority="26" />
+      <Item value="DrawString`0" priority="53" />
       <Item value="Begin`0" priority="26" />
       <Item value="End`0" priority="26" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@Microsoft.Xna.Framework.Color">
-      <Item value="White" priority="26" />
+      <Item value="White" priority="53" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:DebugDisplay">
       <Item value="Draw`0" priority="26" />
@@ -377,7 +385,7 @@
       <Item value="Initialize`0" priority="26" />
       <Item value="ClearLevel`0" priority="26" />
       <Item value="GenerateLevel`0" priority="26" />
-      <Item value="player" priority="80" />
+      <Item value="player" priority="134" />
       <Item value="platColors" priority="26" />
       <Item value="monolithList" priority="26" />
       <Item value="PhysList" priority="107" />
@@ -427,8 +435,8 @@
     <ItemStatistics item="Qualified:Bound.PhysModel">
       <Item value="Type" priority="26" />
       <Item value="Reset`0" priority="26" />
-      <Item value="phys" priority="405" />
-      <Item value="curColor" priority="110" />
+      <Item value="phys" priority="432" />
+      <Item value="curColor" priority="137" />
       <Item value="physType" priority="107" />
       <Item value="myList" priority="26" />
       <Item value="Remove`0" priority="53" />
@@ -439,15 +447,16 @@
       <Item value="Draw`0" priority="26" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Bound.PlayerController">
-      <Item value="combo" priority="27" />
-      <Item value="platScore" priority="26" />
-      <Item value="physModel" priority="27" />
+      <Item value="combo" priority="55" />
+      <Item value="platScore" priority="53" />
+      <Item value="physModel" priority="54" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Bound.VisModel">
       <Item value="Draw`0" priority="26" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@Bound.Render">
       <Item value="cubeModel" priority="26" />
+      <Item value="scoreFont" priority="27" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@Microsoft.Xna.Framework.MathHelper">
       <Item value="PiOver4" priority="80" />
@@ -463,6 +472,9 @@
       <Item value="r" priority="188" />
       <Item value="space" priority="26" />
       <Item value="gameRunTime" priority="26" />
+      <Item value="spriteBatch" priority="53" />
+      <Item value="ScreenW" priority="26" />
+      <Item value="ScreenH" priority="26" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Microsoft.Xna.Framework.Matrix">
       <Item value="M11" priority="26" />
@@ -507,6 +519,21 @@
     </ItemStatistics>
     <ItemStatistics item="Qualified:BEPUphysics.Collidables.Events.ContactEventManager`1">
       <Item value="ContactRemoved" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Single">
+      <Item value="ToString`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Microsoft.Xna.Framework.Rectangle">
+      <Item value="Center" priority="80" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Microsoft.Xna.Framework.Point">
+      <Item value="X" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Bound.Render+Alignment">
+      <Item value="Right" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Int32">
+      <Item value="ToString`0" priority="53" />
     </ItemStatistics>
   </CompletionStatisticsManager>
 </Configuration>

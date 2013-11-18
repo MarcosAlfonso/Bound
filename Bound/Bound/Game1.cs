@@ -58,7 +58,7 @@ namespace Bound
             graphics.PreferredBackBufferWidth = ScreenW;
             graphics.PreferredBackBufferHeight = ScreenH;
             graphics.PreferMultiSampling = true;
-            graphics.IsFullScreen = true;
+            graphics.IsFullScreen = false;
             graphics.ApplyChanges();
 
             //graphics stuff
@@ -72,7 +72,8 @@ namespace Bound
             Render.cubeModel = LoadModel(@"Models\cubeModel");
             Render.sphereModel = LoadModel(@"Models\sphereModel");
             Render.skyDomeModel = LoadModel(@"Models\skyboxModel");
-            Render.debugFont = Content.Load<SpriteFont>("debugFont");
+            Render.debugFont = Content.Load<SpriteFont>("debug");
+            Render.scoreFont = Content.Load<SpriteFont>("score");
 
             //Physics stuff
             space = new Space();

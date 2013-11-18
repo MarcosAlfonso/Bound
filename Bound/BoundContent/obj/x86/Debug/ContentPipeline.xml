@@ -105,15 +105,6 @@
       <Time>2013-10-14T19:05:29.8996-05:00</Time>
     </Item>
     <Item>
-      <Source>debugFont.spritefont</Source>
-      <Name>debugFont</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\debugFont.xnb</Output>
-      <Time>2013-10-14T19:05:29.9246-05:00</Time>
-    </Item>
-    <Item>
       <Source>Models\skyboxModel.fbx</Source>
       <Name>Models\skyboxModel</Name>
       <Importer>FbxImporter</Importer>
@@ -152,6 +143,24 @@
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\columnModel_0.xml</Output>
       <Time>2013-10-14T19:05:29.8896-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Score.spritefont</Source>
+      <Name>Score</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\Score.xnb</Output>
+      <Time>2013-11-18T02:39:26.7852-06:00</Time>
+    </Item>
+    <Item>
+      <Source>debug.spritefont</Source>
+      <Name>debug</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Marcos\Documents\GitHub\Bound\Bound\Bound\bin\x86\Debug\Content\debug.xnb</Output>
+      <Time>2013-10-14T19:05:29.9246-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
